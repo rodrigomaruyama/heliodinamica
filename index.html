@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heliodinâmica — Módulos Fotovoltaicos do Brasil</title>
+  <meta name="description" content="A Heliodinâmica foi uma empresa brasileira que produziu módulos fotovoltaicos. Este site preserva a memória da marca e de seus produtos.">
+  <meta property="og:title" content="Heliodinâmica — Módulos Fotovoltaicos do Brasil">
+  <meta property="og:description" content="A Heliodinâmica foi uma empresa brasileira que produziu módulos fotovoltaicos.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#0a2a43">
+  <style>
+    :root {
+      --bg-image: url('assets/heliodinamica-modulo.jpg'); /* Substitua este arquivo pela foto do módulo */
+      --brand-yellow: #FFB703;
+      --brand-blue: #0A2A43;
+      --brand-gray: #ECEFF4;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: #0e1726;
+      line-height: 1.6;
+      background: #000;
+    }
+    .hero {
+      min-height: 100%;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: brightness(0.55) contrast(1.05) saturate(1.1);
+    }
+    .hero::after {
+      /* gradiente para legibilidade do texto */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(1200px 600px at 70% 30%, rgba(10,42,67,0.35), transparent 60%),
+                  linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      pointer-events: none;
+    }
+    header {
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem;
+      mix-blend-mode: normal;
+      z-index: 2;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: .6rem;
+      color: white; text-decoration: none;
+    }
+    .brand-mark {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: conic-gradient(from 210deg, var(--brand-yellow), #ffd45a, var(--brand-yellow));
+      box-shadow: 0 8px 24px rgba(255,183,3,.35), inset 0 0 12px rgba(255,255,255,.25);
+      display: grid; place-items: center;
+      position: relative; overflow: hidden;
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute; inset: 1px; border-radius: 9px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, rgba(255,255,255,0) 2px 6px);
+      mix-blend-mode: overlay;
+    }
+    .brand h1 {
+      font-size: 1.05rem; margin: 0; font-weight: 650; letter-spacing: .4px;
+    }
+    .brand small { display: block; font-size: .72rem; opacity: .9; font-weight: 500; }
+    .content {
+      position: relative; z-index: 2;
+      display: grid; gap: 1.25rem;
+      width: min(950px, calc(100% - 2rem));
+      margin: 4rem auto;
+      color: white; text-align: left;
+    }
+    .card {
+      backdrop-filter: blur(8px) saturate(1.1);
+      -webkit-backdrop-filter: blur(8px) saturate(1.1);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 18px;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .title {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      font-weight: 750; margin: 0 0 .25rem 0;
+      line-height: 1.2;
+    }
+    .title .dot {
+      width: .65em; height: .65em; border-radius: 50%;
+      background: var(--brand-yellow);
+      box-shadow: 0 0 0 6px rgba(255,183,3,.18);
+    }
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: #e8f0f7;
+      opacity: .95; margin: 0.1rem 0 0.75rem 0;
+    }
+    .grid {
+      display: grid; gap: .9rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: .25rem;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem .7rem; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(0,0,0,.25);
+      font-size: .9rem; color: #fff;
+      white-space: nowrap;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .8rem 1rem; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.35);
+      text-decoration: none; color: #0a2a43; font-weight: 650;
+      background: linear-gradient(180deg, #FFD977, #FFB703);
+      box-shadow: 0 10px 20px rgba(255,183,3,.25);
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+    .cta:hover { transform: translateY(-1px); filter: brightness(1.03); }
+    footer {
+      position: relative; z-index: 2; color: #cfe3f4;
+      text-align: center; padding: 1rem; font-size: .9rem;
+    }
+    .credits { opacity: .85; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#conteudo">Pular para o conteúdo</a>
+  <main class="hero">
+    <header>
+      <a class="brand" href="#" aria-label="Heliodinâmica">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <h1>Heliodinâmica</h1>
+          <small>Módulos Fotovoltaicos — Brasil</small>
+        </span>
+      </a>
+      <a class="cta" href="mailto:contato@heliodinamica.com.br">Contato</a>
+    </header>
+
+    <section id="conteudo" class="content">
+      <div class="card">
+        <h2 class="title"><span class="dot" aria-hidden="true"></span> Energia do Sol, Memória do Brasil</h2>
+        <p class="subtitle">
+          A <strong>Heliodinâmica</strong> foi uma empresa brasileira dedicada à fabricação de <em>módulos fotovoltaicos</em>.
+          Esta página preserva a memória da marca e de seus produtos, apresentando um registro histórico da indústria solar nacional.
+        </p>
+        <div class="grid">
+          <span class="pill">Produção nacional</span>
+          <span class="pill">Módulos fotovoltaicos</span>
+          <span class="pill">Tecnologia &amp; inovação</span>
+          <span class="pill">Energia limpa</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 .5rem 0;">Sobre</h3>
+        <p style="margin:.2rem 0 0 0;">
+          Fundada no Brasil, a Heliodinâmica integrou engenharia, qualidade e visão de futuro para produzir módulos fotovoltaicos em território nacional. 
+          Se você possui materiais, catálogos, fotos ou documentos técnicos e deseja contribuir com este acervo, escreva para <a href="mailto:acervo@heliodinamica.com.br" style="color:#ffd45a;">acervo@heliodinamica.com.br</a>.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 .5rem 0;">Créditos da imagem</h3>
+        <p style="margin:.2rem 0 0 0;">
+          Substitua a imagem de fundo por uma fotografia do módulo produzido pela Heliodinâmica em <code>assets/heliodinamica-modulo.jpg</code>.
+          O arquivo atual é apenas um espaço reservado (placeholder).
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="credits">
+        © <span id="year"></span> Heliodinâmica — Site de página única. Todos os direitos reservados.
+      </div>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
