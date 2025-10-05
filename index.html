@@ -83,6 +83,26 @@
     }
   </style>
 </head>
+
+      <!-- CONTADOR DE ACESSOS -->
+<div id="contador" style="text-align:right; margin:15px 0; font-size:15px; color:#334155;">
+  👁️ Este site foi visitado <span id="visitas">0</span> vezes.
+</div>
+
+<script>
+  // Define um namespace único (use o domínio do seu site)
+  const namespace = "heliodinamica.com.br";
+
+  // Incrementa e obtém o total de acessos
+  fetch(`https://api.countapi.xyz/hit/${namespace}/visitas`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visitas").textContent = data.value.toLocaleString("pt-BR");
+    })
+    .catch(() => {
+      document.getElementById("visitas").textContent = "—";
+    });
+</script>
   
 <body>
   <main class="wrap">
@@ -320,26 +340,7 @@
       © <span id="y"></span> heliodinamica.com.br — Conteúdo histórico para fins de memória técnica e institucional.
     </footer>
 
-    <!-- CONTADOR DE ACESSOS -->
-<div id="contador" style="text-align:right; margin:15px 0; font-size:15px; color:#334155;">
-  👁️ Este site foi visitado <span id="visitas">0</span> vezes.
-</div>
-
-<script>
-  // Define um namespace único (use o domínio do seu site)
-  const namespace = "heliodinamica.com.br";
-
-  // Incrementa e obtém o total de acessos
-  fetch(`https://api.countapi.xyz/hit/${namespace}/visitas`)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("visitas").textContent = data.value.toLocaleString("pt-BR");
-    })
-    .catch(() => {
-      document.getElementById("visitas").textContent = "—";
-    });
-</script>
-    
+  
   </main>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
