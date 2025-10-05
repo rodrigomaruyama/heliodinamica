@@ -1,204 +1,148 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Heliodinâmica — Módulos Fotovoltaicos do Brasil</title>
-  <meta name="description" content="A Heliodinâmica foi uma empresa brasileira que produziu módulos fotovoltaicos. Este site preserva a memória da marca e de seus produtos.">
-  <meta property="og:title" content="Heliodinâmica — Módulos Fotovoltaicos do Brasil">
-  <meta property="og:description" content="A Heliodinâmica foi uma empresa brasileira que produziu módulos fotovoltaicos.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta name="theme-color" content="#0a2a43">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Heliodinâmica — Histórico e Legado de Bruno Topel</title>
+  <meta name="description" content="Histórico da Heliodinâmica, primeira empresa de energia solar fotovoltaica do Brasil, e a trajetória de seu fundador Bruno Topel." />
   <style>
-    :root {
-      --bg-image: url('assets/heliodinamica_modulo.jpg'); /* Substitua este arquivo pela foto do módulo */
-      --brand-yellow: #FFB703;
-      --brand-blue: #0A2A43;
-      --brand-gray: #ECEFF4;
+    :root{
+      --bg-overlay: rgba(255,255,255,0.86);
+      --text: #0f172a;
+      --muted: #334155;
+      --brand: #eab308;
+      --accent: #0ea5e9;
+      --maxw: 980px;
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color: #0e1726;
-      line-height: 1.6;
-      background: #000;
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: var(--text);
+      line-height:1.6;
     }
-    .hero {
-      min-height: 100%;
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: var(--bg-image);
+    body{
+      background-image: url("heliodinamica_modulo.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: top center;
       background-repeat: no-repeat;
-      transform: scale(1.03);
-      filter: brightness(0.55) contrast(1.05) saturate(1.1);
+      background-attachment: scroll;
     }
-    .hero::after {
-      /* gradiente para legibilidade do texto */
-      content: "";
+    .wrap{ max-width: var(--maxw); margin: 0 auto; padding: clamp(16px, 3vw, 28px); }
+    .panel{
+      background: var(--bg-overlay);
+      backdrop-filter: blur(2px);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      padding: clamp(18px, 3.2vw, 36px);
+      margin: 18px auto;
+    }
+    header{ padding-top: clamp(24px, 6vw, 80px); }
+    h1{ margin: 0 0 8px 0; font-size: clamp(28px, 4.5vw, 44px); }
+    .sub{ margin: 0 0 20px 0; color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
+    .lead{ font-size: clamp(16px, 2.2vw, 20px); border-left: 4px solid var(--brand); padding-left: 12px; margin: 18px 0 26px 0; }
+    h2{ font-size: clamp(22px, 3.5vw, 30px); margin-top: 28px; }
+    h3{ margin-top: 22px; }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .badge{ display:inline-block; background: #111827; color: #fff; padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+    .grid{ display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card{ background: #ffffffd0; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 14px 16px; }
+    .foot{ color: #0b1020; font-size: 13px; opacity: .9; margin-top: 26px; }
+    .legend{ font-size: 13px; color: var(--muted); }
+    .timeline li{ margin: 10px 0; }
+    .caps{ text-transform: uppercase; letter-spacing:.08em; font-weight:700; color:#111827; font-size: 13px;}
+    /* Estilos para vídeos responsivos */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      margin-top: 20px;
+    }
+    .video-container iframe {
       position: absolute;
-      inset: 0;
-      background: radial-gradient(1200px 600px at 70% 30%, rgba(10,42,67,0.35), transparent 60%),
-                  linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
-    header {
-      position: absolute; top: 0; left: 0; right: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.25rem;
-      mix-blend-mode: normal;
-      z-index: 2;
-    }
-    .brand {
-      display: inline-flex; align-items: center; gap: .6rem;
-      color: white; text-decoration: none;
-    }
-    .brand-mark {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: conic-gradient(from 210deg, var(--brand-yellow), #ffd45a, var(--brand-yellow));
-      box-shadow: 0 8px 24px rgba(255,183,3,.35), inset 0 0 12px rgba(255,255,255,.25);
-      display: grid; place-items: center;
-      position: relative; overflow: hidden;
-    }
-    .brand-mark::after {
-      content: "";
-      position: absolute; inset: 1px; border-radius: 9px;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, rgba(255,255,255,0) 2px 6px);
-      mix-blend-mode: overlay;
-    }
-    .brand h1 {
-      font-size: 1.05rem; margin: 0; font-weight: 650; letter-spacing: .4px;
-    }
-    .brand small { display: block; font-size: .72rem; opacity: .9; font-weight: 500; }
-    .content {
-      position: relative; z-index: 2;
-      display: grid; gap: 1.25rem;
-      width: min(950px, calc(100% - 2rem));
-      margin: 4rem auto;
-      color: white; text-align: left;
-    }
-    .card {
-      backdrop-filter: blur(8px) saturate(1.1);
-      -webkit-backdrop-filter: blur(8px) saturate(1.1);
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 18px;
-      padding: clamp(1rem, 3vw, 1.5rem);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .title {
-      display: inline-flex; align-items: center; gap: .6rem;
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-      font-weight: 750; margin: 0 0 .25rem 0;
-      line-height: 1.2;
-    }
-    .title .dot {
-      width: .65em; height: .65em; border-radius: 50%;
-      background: var(--brand-yellow);
-      box-shadow: 0 0 0 6px rgba(255,183,3,.18);
-    }
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.1rem);
-      color: #e8f0f7;
-      opacity: .95; margin: 0.1rem 0 0.75rem 0;
-    }
-    .grid {
-      display: grid; gap: .9rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      margin-top: .25rem;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .5rem .7rem; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.35);
-      background: rgba(0,0,0,.25);
-      font-size: .9rem; color: #fff;
-      white-space: nowrap;
-    }
-    .cta {
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .8rem 1rem; border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.35);
-      text-decoration: none; color: #0a2a43; font-weight: 650;
-      background: linear-gradient(180deg, #FFD977, #FFB703);
-      box-shadow: 0 10px 20px rgba(255,183,3,.25);
-      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
-    }
-    .cta:hover { transform: translateY(-1px); filter: brightness(1.03); }
-    footer {
-      position: relative; z-index: 2; color: #cfe3f4;
-      text-align: center; padding: 1rem; font-size: .9rem;
-    }
-    .credits { opacity: .85; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
   </style>
 </head>
 <body>
-  <a class="sr-only" href="#conteudo">Pular para o conteúdo</a>
-  <main class="hero">
-    <header>
-      <a class="brand" href="#" aria-label="Heliodinâmica">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>
-          <h1>Heliodinâmica</h1>
-          <small>Módulos Fotovoltaicos — Brasil</small>
-        </span>
-      </a>
-      <a class="cta" href="mailto:rodrigomaruyama@usp.br">Contato</a>
+  <main class="wrap">
+    <header class="panel">
+      <span class="badge">Heliodinâmica</span>
+      <h1>Histórico e Legado de <span style="color:var(--brand)">Bruno Topel</span></h1>
+      <p class="sub">A primeira empresa de energia solar fotovoltaica do Brasil e sua contribuição pioneira para a indústria nacional.</p>
+      <p class="lead">
+        Fundada no início da década de 1980 por <strong>Bruno Topel</strong>, físico polonês naturalizado brasileiro, a Heliodinâmica foi a
+        <strong>primeira empresa brasileira</strong> a verticalizar a cadeia fotovoltaica — da fabricação de <em>células</em> de silício à montagem de <em>módulos</em> e entrega de sistemas completos.
+      </p>
+      <p class="legend">Foto de fundo: módulo histórico Heliodinâmica (células arredondadas), alinhada ao topo.</p>
     </header>
 
-    <section id="conteudo" class="content">
-      <div class="card">
-        <h2 class="title"><span class="dot" aria-hidden="true"></span> Energia do Sol, Memória do Brasil</h2>
-        <p class="subtitle">
-          A <strong>Heliodinâmica</strong> foi uma empresa brasileira dedicada à fabricação de <em>módulos fotovoltaicos</em>.
-          Esta página preserva a memória da marca e de seus produtos, apresentando um registro histórico da indústria solar nacional.
-        </p>
-        <div class="grid">
-          <span class="pill">Produção nacional</span>
-          <span class="pill">Módulos fotovoltaicos</span>
-          <span class="pill">Tecnologia &amp; inovação</span>
-          <span class="pill">Energia limpa</span>
-        </div>
+    <section class="panel">
+      <h2>Bruno Topel: visão, indústria e pioneirismo</h2>
+      <p>
+        Após carreira bem-sucedida na indústria de motores, Topel conheceu a energia solar em uma viagem no início de 1980 e decidiu investir fortemente para criar, no Brasil, uma manufatura fotovoltaica completa.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Marcos da Heliodinâmica</h2>
+      <ul class="timeline">
+        <li><span class="caps">1980–1981</span> — Criação da Heliodinâmica e início do projeto de verticalização.</li>
+        <li><span class="caps">Década de 1980</span> — Pico de produção: ~5% da fabricação mundial de módulos.</li>
+        <li><span class="caps">Anos 2000</span> — Operações de nicho; mercado restrito.</li>
+        <li><span class="caps">~2010</span> — Empresa entra em hibernação.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Vídeos Históricos</h2>
+      <p>Assista a dois registros históricos relacionados à Heliodinâmica e ao legado de Bruno Topel:</p>
+
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/rynhsq5_8J4" allowfullscreen title="Vídeo 1 - Heliodinâmica"></iframe>
       </div>
 
-      <div class="card">
-        <h3 style="margin:0 0 .5rem 0;">Sobre</h3>
-        <p style="margin:.2rem 0 0 0;">
-          Fundada no Brasil, a Heliodinâmica integrou engenharia, qualidade e visão de futuro para produzir módulos fotovoltaicos em território nacional. 
-          Se você possui materiais, catálogos, fotos ou documentos técnicos e deseja contribuir com este acervo, escreva para <a href="mailto:acervo@heliodinamica.com.br" style="color:#ffd45a;">acervo@heliodinamica.com.br</a>.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin:0 0 .5rem 0;">Créditos da imagem</h3>
-        <p style="margin:.2rem 0 0 0;">
-          Substitua a imagem de fundo por uma fotografia do módulo produzido pela Heliodinâmica em <code>assets/heliodinamica-modulo.jpg</code>.
-          O arquivo atual é apenas um espaço reservado (placeholder).
-        </p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/EhnjNgyeK-o" allowfullscreen title="Vídeo 2 - Bruno Topel e energia solar"></iframe>
       </div>
     </section>
 
-    <footer>
-      <div class="credits">
-        © <span id="year"></span> Heliodinâmica — Site de página única. Todos os direitos reservados.
+    <section class="panel">
+      <h2>Leituras e materiais (PDFs anexados)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3><a href="A eletricidade do Sol _ Revista Pesquisa Fapesp.pdf" target="_blank">A eletricidade do Sol — Revista Pesquisa FAPESP</a></h3>
+        </div>
+        <div class="card">
+          <h3><a href="a1369.pdf" target="_blank">O Estado de S. Paulo — Perfil de Bruno Topel</a></h3>
+        </div>
+        <div class="card">
+          <h3><a href="Células solares - fontes alternativas de energia (MA016).pdf" target="_blank">Células solares — Newton C. Braga</a></h3>
+        </div>
+        <div class="card">
+          <h3><a href="Conheça sobre a História da Energia Solar - ENERGÊS.pdf" target="_blank">História da Energia Solar — ENERGÊS</a></h3>
+        </div>
+        <div class="card">
+          <h3><a href="Criou primeira empresa de energia solar do Brasil.pdf" target="_blank">Criou primeira empresa de energia solar do Brasil</a></h3>
+        </div>
+        <div class="card">
+          <h3><a href="Portal Pick-upau - Mundo.pdf" target="_blank">Portal Pick-upau — Energia Solar</a></h3>
+        </div>
       </div>
+    </section>
+
+    <footer class="wrap" style="text-align:center; color:#0f172a;">
+      © <span id="y"></span> heliodinamica.com.br — Conteúdo histórico para fins de memória técnica e institucional.
     </footer>
   </main>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
