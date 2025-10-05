@@ -21,13 +21,14 @@
       color: var(--text);
       line-height:1.6;
     }
-    body{
-      background-image: url("assets/heliodinamica_modulo.jpg");
-      background-size: cover;
-      background-position: top center;   /* começa alinhada no topo */
-      background-repeat: repeat-y;       /* repete apenas na vertical */
-      background-attachment: scroll;     /* faz o fundo rolar junto com o conteúdo */
-    }
+  body{
+    background-image: url("assets/heliodinamica_modulo.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+    padding-top: clamp(80px, 12vw, 160px); /* 🔹 cria o espaço no topo */
+  }
     .wrap{ max-width: var(--maxw); margin: 0 auto; padding: clamp(16px, 3vw, 28px); }
     .panel{
       background: var(--bg-overlay);
