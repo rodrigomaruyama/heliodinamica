@@ -52,7 +52,6 @@
     .legend{ font-size: 13px; color: var(--muted); }
     .timeline li{ margin: 10px 0; }
     .caps{ text-transform: uppercase; letter-spacing:.08em; font-weight:700; color:#111827; font-size: 13px;}
-    /* Estilos para vídeos responsivos */
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -70,6 +69,18 @@
       height: 100%;
       border: 0;
     }
+    ol.download-list {
+      margin-left: 20px;
+      padding-left: 10px;
+    }
+    ol.download-list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    ol.download-list a {
+      color: var(--accent);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -82,13 +93,12 @@
         Fundada no início da década de 1980 por <strong>Bruno Topel</strong>, físico polonês naturalizado brasileiro, a Heliodinâmica foi a
         <strong>primeira empresa brasileira</strong> a verticalizar a cadeia fotovoltaica — da fabricação de <em>células</em> de silício à montagem de <em>módulos</em> e entrega de sistemas completos.
       </p>
-      <p class="legend">Foto de fundo: módulo histórico Heliodinâmica (células arredondadas), alinhada ao topo.</p>
     </header>
 
     <section class="panel">
       <h2>Bruno Topel: visão, indústria e pioneirismo</h2>
       <p>
-        Após carreira bem-sucedida na indústria de motores, Topel conheceu a energia solar em uma viagem no início de 1980 e decidiu investir fortemente para criar, no Brasil, uma manufatura fotovoltaica completa.
+        Após carreira bem-sucedida na indústria de motores, Topel conheceu a energia solar no início dos anos 1980 e decidiu criar, no Brasil, uma manufatura fotovoltaica completa.
       </p>
     </section>
 
@@ -116,7 +126,7 @@
     </section>
 
     <section class="panel">
-      <h2>Leituras e materiais (PDFs anexados)</h2>
+      <h2>Leituras e referências</h2>
       <div class="grid">
         <div class="card">
           <h3><a href="A eletricidade do Sol _ Revista Pesquisa Fapesp.pdf" target="_blank">A eletricidade do Sol — Revista Pesquisa FAPESP</a></h3>
@@ -137,6 +147,20 @@
           <h3><a href="Portal Pick-upau - Mundo.pdf" target="_blank">Portal Pick-upau — Energia Solar</a></h3>
         </div>
       </div>
+    </section>
+
+    <!-- ✅ NOVA SEÇÃO COM LINKS PARA DOWNLOAD -->
+    <section class="panel">
+      <h2>Materiais para download</h2>
+      <p>Os arquivos originais das matérias estão disponíveis na pasta <code>assets/docs</code> do site. Clique para visualizar ou baixar:</p>
+      <ol class="download-list">
+        <li><a href="assets/docs/A eletricidade do Sol _ Revista Pesquisa Fapesp.pdf" target="_blank" download>A eletricidade do Sol — Revista Pesquisa FAPESP</a></li>
+        <li><a href="assets/docs/a1369.pdf" target="_blank" download>O Estado de S. Paulo — Perfil de Bruno Topel</a></li>
+        <li><a href="assets/docs/Células solares - fontes alternativas de energia (MA016).pdf" target="_blank" download>Células solares — Newton C. Braga</a></li>
+        <li><a href="assets/docs/Conheça sobre a História da Energia Solar - ENERGÊS.pdf" target="_blank" download>História da Energia Solar — ENERGÊS</a></li>
+        <li><a href="assets/docs/Criou primeira empresa de energia solar do Brasil.pdf" target="_blank" download>Criou primeira empresa de energia solar do Brasil</a></li>
+        <li><a href="assets/docs/Portal Pick-upau - Mundo.pdf" target="_blank" download>Portal Pick-upau — Mundo Solar</a></li>
+      </ol>
     </section>
 
     <footer class="wrap" style="text-align:center; color:#0f172a;">
