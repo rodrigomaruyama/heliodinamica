@@ -181,12 +181,70 @@
   </blockquote>
 </section>
 
-    <section class="panel">
+<section class="panel" id="bruno-topel">
+  <div class="bio-container">
+    <div class="bio-image">
+      <img src="assets/img/Bruno-Topel.jpg" alt="Bruno Topel" />
+    </div>
+    <div class="bio-text">
       <h2>Bruno Topel: visão, indústria e pioneirismo</h2>
       <p>
-        Após carreira bem-sucedida na indústria de motores, Topel conheceu a energia solar no início dos anos 1980 e decidiu criar, no Brasil, uma manufatura fotovoltaica completa.
+        Após uma carreira bem-sucedida na indústria de motores elétricos e automação, 
+        <strong>Bruno Topel</strong> conheceu a tecnologia solar no início da década de 1980 
+        e decidiu investir na criação de uma <strong>manufatura fotovoltaica completa no Brasil</strong>.
+        Seu objetivo era ambicioso: dominar todas as etapas da cadeia produtiva — 
+        do silício à montagem dos módulos — tornando o país autossuficiente em energia solar.
       </p>
-    </section>
+      <p>
+        Sua visão empreendedora e capacidade técnica deram origem à <strong>Heliodinâmica S.A.</strong>, 
+        a primeira empresa brasileira a fabricar células solares em escala industrial. 
+        O projeto, financiado com recursos próprios, combinou inovação, rigor científico e 
+        compromisso com a independência tecnológica do Brasil.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ESTILO DA SEÇÃO -->
+<style>
+  #bruno-topel .bio-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap; /* responsivo */
+  }
+
+  #bruno-topel .bio-image {
+    flex: 1 1 280px;
+    text-align: center;
+  }
+
+  #bruno-topel .bio-image img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+
+  #bruno-topel .bio-text {
+    flex: 2 1 420px;
+  }
+
+  #bruno-topel .bio-text h2 {
+    margin-top: 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    #bruno-topel .bio-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    #bruno-topel .bio-text {
+      text-align: left;
+    }
+  }
+</style>
 
     <section class="panel">
       <h2>Marcos da Heliodinâmica</h2>
