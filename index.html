@@ -83,6 +83,27 @@
     }
   </style>
 </head>
+  
+  <!-- CONTADOR DE ACESSOS -->
+<div id="contador" style="text-align:center; margin-top:20px; font-size:15px; color:#334155;">
+  👁️ Este site foi visitado <span id="visitas">0</span> vezes.
+</div>
+
+<script>
+  // Define um namespace único para o contador (use o domínio do seu site)
+  const namespace = "heliodinamica.com.br";
+
+  // Chama a API pública CountAPI para incrementar e obter o contador
+  fetch(`https://api.countapi.xyz/hit/${namespace}/visitas`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visitas").textContent = data.value.toLocaleString("pt-BR");
+    })
+    .catch(() => {
+      document.getElementById("visitas").textContent = "—";
+    });
+</script>
+  
 <body>
   <main class="wrap">
 
