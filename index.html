@@ -348,5 +348,82 @@ target="_blank" rel="noopener" class="link-tese">
 
 </main>
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<!-- POPUP DE DISCLAIMER -->
+<div id="disclaimer-overlay">
+  <div id="disclaimer-popup">
+    <h3>Aviso Importante</h3>
+    <p>
+      As informações apresentadas neste site foram compiladas a partir
+      de fontes públicas disponíveis na internet. Todo conteúdo é
+      utilizado exclusivamente para fins informativos e educacionais.
+    </p>
+    <p>
+      Este site não garante a exatidão, atualidade ou integridade dos dados.
+      Recomenda-se sempre consultar os materiais oficiais, cujos links
+      são fornecidos ao longo da página.
+    </p>
+    <button id="disclaimer-btn">OK, entendi</button>
+  </div>
+</div>
+
+<style>
+  #disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  #disclaimer-popup {
+    background: #ffffffee;
+    max-width: 520px;
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  #disclaimer-popup h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #0f172a;
+  }
+
+  #disclaimer-btn {
+    margin-top: 18px;
+    padding: 10px 18px;
+    border: none;
+    background: #0ea5e9;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  #disclaimer-btn:hover {
+    background: #0284c7;
+  }
+</style>
+
+<script>
+  // Exibe o popup somente uma vez por sessão
+  if (!sessionStorage.getItem('disclaimerShown')) {
+    document.getElementById('disclaimer-overlay').style.display = 'flex';
+  } else {
+    document.getElementById('disclaimer-overlay').style.display = 'none';
+  }
+
+  document.getElementById('disclaimer-btn').addEventListener('click', function() {
+    document.getElementById('disclaimer-overlay').style.display = 'none';
+    sessionStorage.setItem('disclaimerShown', 'true');
+  });
+</script>
+  
 </body>
 </html>
