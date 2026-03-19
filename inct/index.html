@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,288 +17,39 @@
       --radius: 14px;
       --max-width: 1200px;
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--page-bg);
-    }
-
-    .header {
-      background: var(--header-bg);
-      border-bottom: 1px solid rgba(0,0,0,0.15);
-      box-shadow: var(--shadow);
-    }
-
-    .header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      min-height: 220px;
-      padding: 28px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .hero-title {
-      color: white;
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 300;
-      margin: 0;
-      line-height: 1.1;
-    }
-
-    .hero-subtitle {
-      color: rgba(255,255,255,0.9);
-      margin-top: 12px;
-      font-size: 1.05rem;
-      max-width: 650px;
-    }
-
-    .logo-box {
-      background: rgba(255,255,255,0.7);
-      padding: 0px 0px;
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-box img {
-      width: min(190px, 24vw);
-      height: auto;
-      display: block;
-    }
-
-    .topbar {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 18px 36px 0;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      background: white;
-      border-radius: 999px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .lang-switch button {
-      border: 0;
-      background: transparent;
-      padding: 10px 16px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .lang-switch button.active {
-      background: var(--menu-bg);
-      color: white;
-    }
-
-    .nav-wrap {
-      max-width: var(--max-width);
-      margin: 14px auto 0;
-      padding: 0 36px;
-    }
-
-    nav {
-      background: var(--menu-bg);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2px;
-      box-shadow: var(--shadow);
-    }
-
-    nav a {
-      color: #f3f3f3;
-      text-decoration: none;
-      padding: 15px 18px;
-      display: block;
-      font-size: 1rem;
-      transition: background 0.2s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background: var(--menu-hover);
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 28px 36px 60px;
-    }
-
-    .page {
-      display: none;
-      animation: fadeIn 0.22s ease;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .intro-card,
-    .content-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
-      margin-bottom: 22px;
-    }
-
-    .intro-card h2,
-    .content-card h2 {
-      margin: 0 0 14px;
-      font-size: clamp(1.6rem, 2.7vw, 2.3rem);
-      font-weight: 400;
-      color: #5f5f5f;
-    }
-
-    .intro-card p,
-    .content-card p,
-    .content-card li {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #4a4a4a;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .people-list,
-    .research-list,
-    .news-list,
-    .partner-list,
-    .opportunity-list {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 8px;
-    }
-
-    .event-card,
-    .opportunity-item {
-      padding: 18px;
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 12px;
-      background: #fafafa;
-      margin-bottom: 14px;
-    }
-
-    .event-card h3,
-    .opportunity-item h3 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 22px;
-    }
-
-    form {
-      display: grid;
-      gap: 12px;
-    }
-
-    label {
-      font-weight: 600;
-      color: #4d4d4d;
-      font-size: 0.95rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #cfcfcf;
-      border-radius: 10px;
-      font: inherit;
-      background: white;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .button {
-      background: var(--menu-bg);
-      color: white;
-      border: 0;
-      border-radius: 10px;
-      padding: 12px 18px;
-      cursor: pointer;
-      font: inherit;
-      width: fit-content;
-    }
-
-    footer {
-      background: #2d2d2d;
-      color: #e6e6e6;
-      padding: 22px 36px;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 920px) {
-      .header-inner,
-      .contact-grid,
-      .grid {
-        grid-template-columns: 1fr;
-        display: grid;
-      }
-
-      .header-inner {
-        min-height: auto;
-      }
-
-      .logo-box {
-        justify-self: start;
-        width: fit-content;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .header-inner,
-      .nav-wrap,
-      .topbar,
-      main {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      nav a {
-        flex: 1 1 100%;
-      }
-
-      .hero-subtitle {
-        font-size: 0.95rem;
-      }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--page-bg); line-height: 1.6; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .header { background: var(--header-bg); border-bottom: 1px solid rgba(0,0,0,.15); box-shadow: var(--shadow); }
+    .header-inner { max-width: var(--max-width); margin: 0 auto; min-height: 220px; padding: 36px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .hero-title { color:white; font-size: clamp(2.2rem, 5vw, 4rem); font-weight:300; margin:0; line-height:1.1; }
+    .hero-subtitle { color:rgba(255,255,255,.92); margin-top:12px; font-size:1.08rem; max-width:760px; }
+    .logo-box { background: rgba(255,255,255,0.72); padding: 20px 24px; border-radius: 16px; min-width: 160px; text-align:center; font-weight:700; color:#555; }
+    .nav-wrap { max-width: var(--max-width); margin: 0 auto; padding: 18px 36px 0; }
+    nav { background: var(--menu-bg); display:flex; flex-wrap:wrap; gap:2px; box-shadow: var(--shadow); }
+    nav a { color:white; padding:14px 18px; display:block; font-size:.95rem; }
+    nav a:hover { background: var(--menu-hover); text-decoration:none; }
+    .container { max-width: var(--max-width); margin: 28px auto 48px; padding: 0 36px; display:grid; gap:24px; }
+    .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
+    h2 { margin: 0 0 16px; font-size: 1.8rem; }
+    h3 { margin: 24px 0 10px; font-size: 1.15rem; }
+    p { margin: 0 0 12px; }
+    ul { margin: 0; padding-left: 20px; }
+    li { margin: 6px 0; }
+    .lead { font-size: 1.08rem; color: #444; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; }
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#f4f4f4; color:#444; font-size:.88rem; margin: 3px 6px 3px 0; }
+    table { width:100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { text-align:left; padding:12px 10px; border-bottom:1px solid #e4e4e4; vertical-align: top; }
+    th { background:#f7f7f7; }
+    .muted { color: var(--muted); }
+    footer { max-width: var(--max-width); margin: 0 auto 40px; padding: 0 36px; color: var(--muted); font-size: .92rem; }
+    @media (max-width: 820px) {
+      .header-inner, .grid-2 { grid-template-columns: 1fr; display:block; }
+      .logo-box { margin-top:20px; }
+      .container, .nav-wrap, footer { padding: 0 18px; }
+      .header-inner { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -306,240 +57,153 @@
   <header class="header">
     <div class="header-inner">
       <div>
-        <h1 class="hero-title" data-pt="INCT-DAESF" data-en="INCT-DAESF">INCT-DAESF</h1>
-        <p class="hero-subtitle"
-           data-pt="Instituto Nacional de Ciência e Tecnologia de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica."
-           data-en="National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications.">
-          Instituto Nacional de Ciência e Tecnologia de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica.
-        </p>
+        <h1 class="hero-title">INCT-DAESF</h1>
+        <p class="hero-subtitle">Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica.</p>
       </div>
-      <div class="logo-box">
-        <img src="pictures/Logo_1.png" alt="INCT-DAESF logo" />
-      </div>
+      <div class="logo-box">Energia Solar<br/>Fotovoltaica</div>
     </div>
   </header>
 
-  <div class="topbar">
-    <div class="lang-switch" aria-label="Language switch">
-      <button id="btn-pt" class="active" type="button">Português</button>
-      <button id="btn-en" type="button">English</button>
-    </div>
-  </div>
-
   <div class="nav-wrap">
-    <nav id="main-nav">
-      <a href="#home" class="active" data-page="home" data-pt="Inicio" data-en="Home">Inicio</a>
-      <a href="#about" data-page="about" data-pt="Sobre" data-en="About">Sobre</a>
-      <a href="#groups" data-page="groups" data-pt="Grupos Associados" data-en="Associated Groups">Grupos Associados</a>
-      <a href="#research" data-page="research" data-pt="Pesquisa" data-en="Research">Pesquisa</a>
-      <a href="#events" data-page="events" data-pt="Difusão e Eventos" data-en="Outreach and Events">Difusão e Eventos</a>
-      <a href="#opportunities" data-page="opportunities" data-pt="Oportunidades" data-en="Opportunities">Oportunidades</a>
-      <a href="#partners" data-page="partners" data-pt="Parcerias" data-en="Partners">Parcerias</a>
-      <a href="#contact" data-page="contact" data-pt="Contato" data-en="Contact">Contato</a>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#grupos">Grupos Associados</a>
+      <a href="#pesquisa">Pesquisa</a>
+      <a href="#difusao">Difusão e Eventos</a>
+      <a href="#oportunidades">Oportunidades</a>
+      <a href="#instituicoes">Instituições e Parceiros</a>
     </nav>
   </div>
 
-  <main>
-    <section id="home" class="page active">
-<div class="intro-card">
-  <h2 data-pt="Sobre o INCT-DAESF" data-en="About INCT-DAESF">Sobre o INCT-DAESF</h2>
-  
-  <p data-pt="O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (DAESF) é uma rede de excelência que reúne 14 das instituições de pesquisa mais produtivas do Brasil. Nosso foco é impulsionar a inovação tecnológica em sistemas fotovoltaicos, tanto para redes interligadas quanto para sistemas isolados, preenchendo uma lacuna estratégica no cenário de Ciência e Tecnologia nacional."
-     data-en="The INCT for the Development of Solar Photovoltaic Energy Applications (DAESF) is an excellence network bringing together 14 of Brazil's most productive research institutions. Our focus is to drive technological innovation in photovoltaic systems, for both grid-connected and off-grid applications, filling a strategic gap in the national Science and Technology landscape.">
-    O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (DAESF) é uma rede de excelência que reúne 14 das instituições de pesquisa mais produtivas do Brasil. Nosso foco é impulsionar a inovação tecnológica em sistemas fotovoltaicos, tanto para redes interligadas quanto para sistemas isolados, preenchendo uma lacuna estratégica no cenário de Ciência e Tecnologia nacional.
-  </p>
-  
-  <p data-pt="Atuamos em parceria com os setores empresarial e governamental para formar recursos humanos de alta capacidade e propor soluções inovadoras. Através da mobilidade científica e do compartilhamento de infraestruturas multiusuário, o INCT-DAESF consolida a maior concentração de especialistas na tecnologia de geração elétrica que mais cresce no mundo."
-     data-en="We work alongside the business and government sectors to train highly skilled professionals and propose innovative solutions. Through scientific mobility and the sharing of multi-user infrastructures, INCT-DAESF consolidates the largest concentration of experts in the world's fastest-growing electricity generation technology.">
-    Atuamos em parceria com os setores empresarial e governamental para formar recursos humanos de alta capacidade e propor soluções inovadoras. Através da mobilidade científica e do compartilhamento de infraestruturas multiusuário, o INCT-DAESF consolida a maior concentração de especialistas na tecnologia de geração elétrica que mais cresce no mundo.
-  </p>
-</div>
-      <div class="grid">
-        <div class="content-card">
-          <h2 data-pt="Destaques" data-en="Highlights">Destaques</h2>
-          <ul class="news-list">
-            <li data-pt="Descrição institucional do INCT, suas sedes IEE e UFSC, e seus objetivos." data-en="Institutional overview of INCT, its IEE and UFSC headquarters, and its objectives.">Descrição institucional do INCT, suas sedes IEE e UFSC, e seus objetivos.</li>
-            <li data-pt="Lista de líderes de grupos associados, pesquisadores principais, associados, bolsistas e apoio administrativo." data-en="List of associated group leaders, principal investigators, associates, scholarship holders, and administrative support.">Lista de líderes de grupos associados, pesquisadores principais, associados, bolsistas e apoio administrativo.</li>
-            <li data-pt="Metas com pesquisadores e resumos de pesquisa." data-en="Goals with researchers and research summaries.">Metas com pesquisadores e resumos de pesquisa.</li>
+  <main class="container">
+    <section id="inicio" class="card">
+      <h2>Início</h2>
+      <p class="lead">O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.</p>
+    </section>
+
+    <section id="sobre" class="card">
+      <h2>Sobre</h2>
+      <p>O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ciência e tecnologia atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.</p>
+      <p>Seu objetivo é desenvolver pesquisa de alto nível, promover a inovação e formar recursos humanos qualificados, contribuindo para a transição do Brasil para uma oferta energética sustentável. O Instituto atua em articulação com os setores empresarial e governamental, promovendo a transferência de conhecimento, o desenvolvimento de soluções tecnológicas e a formulação de políticas públicas.</p>
+      <p>Com forte cooperação internacional e interação com o setor produtivo, o INCT-DAESF busca ampliar o impacto científico, tecnológico, econômico e socioambiental da energia solar fotovoltaica, contribuindo para o avanço dessa tecnologia estratégica no país. Suas atividades incluem desde a modelagem e a integração de sistemas até aplicações inovadoras, como armazenamento de energia, hidrogênio verde, mobilidade elétrica, sistemas híbridos e sistemas agrovoltaicos.</p>
+    </section>
+
+    <section id="grupos" class="card">
+      <h2>Grupos Associados</h2>
+      <p>O INCT-DAESF tem sua sede na Universidade de São Paulo (USP), por meio do Instituto de Energia e Ambiente, no Laboratório de Sistemas Fotovoltaicos (LSF-IEE/USP), que dispõe de infraestrutura laboratorial e suporte administrativo para o desenvolvimento das atividades do Instituto. A vice-sede está vinculada à Universidade Federal de Santa Catarina (UFSC), por meio do grupo Fotovoltaica/UFSC, referência nacional na área.</p>
+      <p><strong>Coordenação:</strong> Prof. Dr. Roberto Zilles (LSF-IEE/USP)</p>
+      <p><strong>Vice-coordenação:</strong> Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)</p>
+      <p>O INCT-DAESF é composto por grupos de pesquisa associados distribuídos em diferentes instituições brasileiras, com seus respectivos líderes:</p>
+      <table>
+        <thead><tr><th>Grupo / Instituição</th><th>Líder</th><th>Lattes</th></tr></thead>
+        <tbody>
+          <tr><td>LSF-IEE/USP</td><td>Prof. Roberto Zilles</td><td><a href="https://lattes.cnpq.br/0339375192824635">Currículo</a></td></tr>
+          <tr><td>FOTOVOLTAICA/UFSC</td><td>Prof. Ricardo Rüther</td><td><a href="https://lattes.cnpq.br/5669240020541721">Currículo</a></td></tr>
+          <tr><td>NTEEL/UFSC</td><td>Prof. Dr. Giuliano Arns Rampinelli</td><td><a href="https://lattes.cnpq.br/8730750961111658">Currículo</a></td></tr>
+          <tr><td>LABSOL/UFRGS</td><td>Prof. Dr. Fabiano Perin Gasparin</td><td><a href="https://lattes.cnpq.br/5631639380223151">Currículo</a></td></tr>
+          <tr><td>GEDAE/UFPA</td><td>Prof. Wilson Negrão Macêdo</td><td><a href="https://lattes.cnpq.br/3386249951714088">Currículo</a></td></tr>
+          <tr><td>IFSC (GENERAL)</td><td>Prof. Samuel Luna de Abreu</td><td><a href="https://lattes.cnpq.br/0864784421981857">Currículo</a></td></tr>
+          <tr><td>LAF/UFF</td><td>Prof. Dr. Gilberto Figueiredo Pinto Filho</td><td><a href="https://lattes.cnpq.br/4642027221849124">Currículo</a></td></tr>
+          <tr><td>LER/UNIFAP</td><td>Prof. Dr. Alaan Ubaiara Brito</td><td><a href="https://lattes.cnpq.br/9194391143997588">Currículo</a></td></tr>
+          <tr><td>ISI-ER/SENAI-RN</td><td>Dra. Samira de Azevedo Santos Emiliavaca</td><td><a href="https://lattes.cnpq.br/8334809149422137">Currículo</a></td></tr>
+          <tr><td>LAERO/LEA/UFC</td><td>Prof. Dr. Paulo Marques Carvalho</td><td><a href="https://lattes.cnpq.br/0935409654079900">Currículo</a></td></tr>
+          <tr><td>UFSCar (Campus Lagoa do Sino)</td><td>Prof. Dr. Rafael Tiezzi</td><td><a href="https://lattes.cnpq.br/7979063304544915">Currículo</a></td></tr>
+          <tr><td>UFBA</td><td>Prof. Dr. Osvaldo Soliano Pereira</td><td><a href="https://lattes.cnpq.br/0059972528530672">Currículo</a></td></tr>
+        </tbody>
+      </table>
+      <p class="muted">Esses grupos compõem uma rede colaborativa que integra competências complementares e infraestrutura avançada, permitindo o desenvolvimento de projetos cooperativos em escala nacional e internacional.</p>
+    </section>
+
+    <section id="pesquisa" class="card">
+      <h2>Pesquisa</h2>
+      <p>O INCT-DAESF estrutura suas atividades em um conjunto de pesquisas interdependentes, organizadas de forma colaborativa entre diferentes instituições de ensino e pesquisa. Cada meta é coordenada por um laboratório associado e é executada com a participação integrada dos demais grupos da rede.</p>
+      <table>
+        <thead>
+          <tr><th>Eixo</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Modelagem e qualificação de sistemas FV</td><td>Atividades conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP.</td></tr>
+          <tr><td>Avaliação termoenergética de edificações</td><td>Desenvolvida com participação do LAF – UFF e UFSM.</td></tr>
+          <tr><td>Armazenamento de energia</td><td>Integração da geração fotovoltaica com sistemas de armazenamento por grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC.</td></tr>
+          <tr><td>Hidrogênio verde</td><td>Atividades concentradas no grupo FOTOVOLTAICA – UFSC.</td></tr>
+          <tr><td>Previsão do recurso solar e calibração</td><td>Coordenadas por UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP.</td></tr>
+          <tr><td>Integração à rede e minirredes</td><td>Trabalhos conduzidos por NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP.</td></tr>
+          <tr><td>Sistemas híbridos</td><td>Desenvolvimento solar-eólico coordenado por LAERO/LEA – UFC.</td></tr>
+          <tr><td>Sistemas agrovoltaicos</td><td>Liderados pelos grupos da FOTOVOLTAICA – UFSC e LSF – IEE/USP.</td></tr>
+          <tr><td>Ensaios experimentais e conformidade</td><td>Com destaque para LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA.</td></tr>
+          <tr><td>Comunidades isoladas</td><td>Aplicações voltadas à eletrificação em projetos da UFPA e da UNIFAP.</td></tr>
+          <tr><td>Estudos econômicos e regulatórios</td><td>Conduzidos pela UFBA e pela UFSCar.</td></tr>
+          <tr><td>Formação de recursos humanos e difusão</td><td>Meta transversal que envolve todos os grupos participantes.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="difusao" class="card">
+      <h2>Difusão e Eventos</h2>
+      <p>A estratégia de difusão do INCT-DAESF baseia-se na ampla disseminação do conhecimento científico, tecnológico e aplicado gerado pelo Instituto, visando alcançar a comunidade acadêmica, o setor produtivo e a sociedade em geral.</p>
+      <p>As ações incluem a publicação de resultados em periódicos científicos de alto impacto e em revistas técnicas, bem como a participação em conferências nacionais e internacionais. Complementarmente, o INCT promove seminários, eventos e transmissões online, ampliando o acesso ao conhecimento e incentivando a formação de novos pesquisadores.</p>
+      <p>A interação com o setor produtivo é fortalecida por meio de parcerias com associações e empresas do setor energético, o que favorece a transferência de tecnologia e a aplicação prática dos resultados. Além disso, o Instituto investe na divulgação científica em mídias digitais e canais abertos, contribuindo para a popularização da ciência e para o engajamento da sociedade na transição energética.</p>
+    </section>
+
+    <section id="oportunidades" class="card">
+      <h2>Oportunidades</h2>
+      <p>O INCT-DAESF oferece diversas oportunidades de participação e atuação para estudantes e profissionais interessados no desenvolvimento científico e tecnológico na área de energia solar fotovoltaica.</p>
+      <div class="grid-2">
+        <div>
+          <h3>Para estudantes</h3>
+          <ul>
+            <li>Bolsas de Iniciação Científica (IC)</li>
+            <li>Participação em projetos experimentais, de modelagem e estudos aplicados</li>
+            <li>Bolsas de Desenvolvimento Tecnológico e Industrial (DTI)</li>
           </ul>
         </div>
-        <div class="content-card">
-          <h2 data-pt="Estrutura do portal" data-en="Portal structure">Estrutura do portal</h2>
-          <p data-pt="O layout foi mantido simples, com cabeçalho amplo, menu horizontal escuro e cartões de conteúdo para facilitar futura expansão em GitHub Pages ou outro servidor estático."
-             data-en="The layout was kept simple, with a large header, dark horizontal menu, and content cards to support future expansion on GitHub Pages or another static server.">
-            O layout foi mantido simples, com cabeçalho amplo, menu horizontal escuro e cartões de conteúdo para facilitar futura expansão em GitHub Pages ou outro servidor estático.
-          </p>
+        <div>
+          <h3>Para pós-graduação e profissionais</h3>
+          <ul>
+            <li>Mestrado e Doutorado em temas estratégicos</li>
+            <li>Projetos cooperativos nacionais e internacionais</li>
+            <li>Mobilidade acadêmica e ambiente multidisciplinar</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="about" class="page">
-      <div class="content-card">
-        <h2 data-pt="Sobre o INCT-DAESF" data-en="About INCT-DAESF">Sobre o INCT-DAESF</h2>
-        <p data-pt="Inserir aqui a descrição do INCT, incluindo missão, área de atuação, relevância científica e tecnológica, e integração entre as sedes IEE e UFSC."
-           data-en="Insert here the INCT description, including mission, field of activity, scientific and technological relevance, and integration between the IEE and UFSC headquarters.">
-          Inserir aqui a descrição do INCT, incluindo missão, área de atuação, relevância científica e tecnológica, e integração entre as sedes IEE e UFSC.
-        </p>
-        <p data-pt="Também é possível apresentar os objetivos estratégicos, histórico do instituto e linhas de trabalho prioritárias."
-           data-en="You can also present the strategic objectives, institute history, and priority work lines here.">
-          Também é possível apresentar os objetivos estratégicos, histórico do instituto e linhas de trabalho prioritárias.
-        </p>
-      </div>
-    </section>
+    <section id="instituicoes" class="card">
+      <h2>Instituições e Parceiros</h2>
+      <p>O INCT-DAESF estabelece uma ampla rede de parcerias nacionais e internacionais, envolvendo instituições de pesquisa e empresas estratégicas, com o objetivo de fortalecer a pesquisa, promover a inovação e ampliar o impacto das aplicações da energia solar fotovoltaica no Brasil.</p>
 
-    <section id="groups" class="page">
-      <div class="content-card">
-        <h2 data-pt="Grupos Associados" data-en="Associated Groups">Grupos Associados</h2>
-        <p data-pt="Esta seção pode listar líderes de grupos associados, pesquisadores principais e associados, bolsistas e equipe de apoio administrativo."
-           data-en="This section can list associated group leaders, principal and associate researchers, scholarship holders, and administrative support staff.">
-          Esta seção pode listar líderes de grupos associados, pesquisadores principais e associados, bolsistas e equipe de apoio administrativo.
-        </p>
-        <ul class="people-list">
-          <li data-pt="Líder do Grupo 1 — descrição breve" data-en="Group 1 Leader — brief description">Líder do Grupo 1 — descrição breve</li>
-          <li data-pt="Pesquisador Principal — descrição breve" data-en="Principal Researcher — brief description">Pesquisador Principal — descrição breve</li>
-          <li data-pt="Pesquisador Associado — descrição breve" data-en="Associate Researcher — brief description">Pesquisador Associado — descrição breve</li>
-          <li data-pt="Bolsistas e apoio administrativo — descrição breve" data-en="Scholarship holders and administrative support — brief description">Bolsistas e apoio administrativo — descrição breve</li>
-        </ul>
+      <h3>Instituições internacionais parceiras</h3>
+      <div>
+        <span class="pill">Instituto de Energía Solar – UPM</span>
+        <span class="pill">Universidad de Jaén</span>
+        <span class="pill">University of Bristol</span>
+        <span class="pill">Fraunhofer ISE / Fraunhofer Chile</span>
+        <span class="pill">Solar Energy Research Institute of Singapore</span>
+        <span class="pill">Australian National University</span>
+        <span class="pill">Technische Universität Ingolstadt</span>
+        <span class="pill">Technische Hochschule Köln</span>
+        <span class="pill">The University of Tokyo</span>
+        <span class="pill">Sandia National Laboratories</span>
+        <span class="pill">Universidad de la República</span>
+        <span class="pill">Pontificia Universidad Católica de Chile</span>
       </div>
-    </section>
 
-    <section id="research" class="page">
-      <div class="content-card">
-        <h2 data-pt="Pesquisa" data-en="Research">Pesquisa</h2>
-        <p data-pt="Área destinada às metas de pesquisa com identificação de pesquisadores responsáveis e resumos objetivos de cada frente de trabalho."
-           data-en="Area dedicated to research goals with the identification of responsible researchers and concise summaries of each work front.">
-          Área destinada às metas de pesquisa com identificação de pesquisadores responsáveis e resumos objetivos de cada frente de trabalho.
-        </p>
-        <ul class="research-list">
-          <li data-pt="Meta 1 — resumo da meta e pesquisador responsável" data-en="Goal 1 — goal summary and responsible researcher">Meta 1 — resumo da meta e pesquisador responsável</li>
-          <li data-pt="Meta 2 — resumo da meta e pesquisador responsável" data-en="Goal 2 — goal summary and responsible researcher">Meta 2 — resumo da meta e pesquisador responsável</li>
-          <li data-pt="Meta 3 — resumo da meta e pesquisador responsável" data-en="Goal 3 — goal summary and responsible researcher">Meta 3 — resumo da meta e pesquisador responsável</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="events" class="page">
-      <div class="content-card">
-        <h2 data-pt="Difusão e Eventos" data-en="Outreach and Events">Difusão e Eventos</h2>
-        <p data-pt="Espaço para eventos passados e futuros, com descrição, datas, imagens e materiais relacionados."
-           data-en="Space for past and future events, with descriptions, dates, images, and related materials.">
-          Espaço para eventos passados e futuros, com descrição, datas, imagens e materiais relacionados.
-        </p>
-        <div class="event-card">
-          <h3 data-pt="Evento exemplo" data-en="Sample event">Evento exemplo</h3>
-          <p data-pt="Adicionar aqui data, local, descrição curta e galeria de fotos ou links." data-en="Add date, location, short description, and photo gallery or links here.">Adicionar aqui data, local, descrição curta e galeria de fotos ou links.</p>
-        </div>
-        <div class="event-card">
-          <h3 data-pt="Ação de difusão científica" data-en="Science outreach action">Ação de difusão científica</h3>
-          <p data-pt="Adicionar iniciativas de divulgação, oficinas, seminários e participação em eventos externos." data-en="Add outreach initiatives, workshops, seminars, and participation in external events.">Adicionar iniciativas de divulgação, oficinas, seminários e participação em eventos externos.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="opportunities" class="page">
-      <div class="content-card">
-        <h2 data-pt="Oportunidades" data-en="Opportunities">Oportunidades</h2>
-        <p data-pt="Substitui a seção de notícias. Aqui podem ser divulgadas bolsas, editais, chamadas, vagas e oportunidades de colaboração."
-           data-en="This replaces the news section. Here you can publish scholarships, calls, announcements, openings, and collaboration opportunities.">
-          Substitui a seção de notícias. Aqui podem ser divulgadas bolsas, editais, chamadas, vagas e oportunidades de colaboração.
-        </p>
-        <div class="opportunity-item">
-          <h3 data-pt="Bolsa / chamada exemplo" data-en="Scholarship / call example">Bolsa / chamada exemplo</h3>
-          <p data-pt="Inserir descrição da oportunidade, prazo, critérios e forma de inscrição." data-en="Insert the opportunity description, deadline, criteria, and application method.">Inserir descrição da oportunidade, prazo, critérios e forma de inscrição.</p>
-        </div>
-        <div class="opportunity-item">
-          <h3 data-pt="Vaga de colaboração" data-en="Collaboration opening">Vaga de colaboração</h3>
-          <p data-pt="Adicionar informações sobre o perfil desejado e o responsável pelo contato." data-en="Add information about the desired profile and the person responsible for contact.">Adicionar informações sobre o perfil desejado e o responsável pelo contato.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="partners" class="page">
-      <div class="content-card">
-        <h2 data-pt="Instituições e Empresas parceiras" data-en="Institutions and Partner Companies">Instituições e Empresas parceiras</h2>
-        <p data-pt="Seção voltada à divulgação de parcerias institucionais, colaborações com empresas e redes de cooperação científica."
-           data-en="Section dedicated to institutional partnerships, collaborations with companies, and scientific cooperation networks.">
-          Seção voltada à divulgação de parcerias institucionais, colaborações com empresas e redes de cooperação científica.
-        </p>
-        <ul class="partner-list">
-          <li data-pt="Parceiro institucional 1" data-en="Institutional partner 1">Parceiro institucional 1</li>
-          <li data-pt="Empresa parceira 2" data-en="Partner company 2">Empresa parceira 2</li>
-          <li data-pt="Rede de cooperação 3" data-en="Cooperation network 3">Rede de cooperação 3</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" class="page">
-      <div class="content-card">
-        <h2 data-pt="Contato" data-en="Contact">Contato</h2>
-        <div class="contact-grid">
-          <div>
-            <p data-pt="Utilize este formulário como modelo para contato institucional. A integração com envio real pode ser feita depois com Formspree, Netlify Forms ou backend próprio."
-               data-en="Use this form as a model for institutional contact. Real submission can be added later with Formspree, Netlify Forms, or a custom backend.">
-              Utilize este formulário como modelo para contato institucional. A integração com envio real pode ser feita depois com Formspree, Netlify Forms ou backend próprio.
-            </p>
-            <p class="meta" data-pt="Endereço, e-mail institucional, telefone e redes podem ser inseridos aqui." data-en="Address, institutional email, phone number, and social links can be inserted here.">Endereço, e-mail institucional, telefone e redes podem ser inseridos aqui.</p>
-          </div>
-          <form>
-            <div>
-              <label for="name" data-pt="Nome" data-en="Name">Nome</label>
-              <input id="name" type="text" />
-            </div>
-            <div>
-              <label for="email" data-pt="E-mail" data-en="Email">E-mail</label>
-              <input id="email" type="email" />
-            </div>
-            <div>
-              <label for="message" data-pt="Mensagem" data-en="Message">Mensagem</label>
-              <textarea id="message"></textarea>
-            </div>
-            <button class="button" type="button" data-pt="Enviar" data-en="Send">Enviar</button>
-          </form>
-        </div>
+      <h3>Empresas parceiras</h3>
+      <div>
+        <span class="pill">BYD Energy do Brasil</span>
+        <span class="pill">Instituto Hercílio Randon</span>
+        <span class="pill">PHB Eletrônica Ltda.</span>
+        <span class="pill">JA Solar Brasil</span>
+        <span class="pill">Huawei do Brasil Telecomunicações Ltda.</span>
+        <span class="pill">WEG Turbinas e Solar Ltda.</span>
+        <span class="pill">China Three Gorges Brasil</span>
       </div>
     </section>
   </main>
 
   <footer>
-    <span data-pt="Protótipo institucional INCT-DAESF" data-en="INCT-DAESF institutional prototype">Protótipo institucional INCT-DAESF</span>
+    Página atualizada com base no conteúdo institucional fornecido para o INCT-DAESF.
   </footer>
-
-  <script>
-    const navLinks = document.querySelectorAll('nav a');
-    const pages = document.querySelectorAll('.page');
-    const ptBtn = document.getElementById('btn-pt');
-    const enBtn = document.getElementById('btn-en');
-
-    function showPage(pageId) {
-      pages.forEach(page => page.classList.toggle('active', page.id === pageId));
-      navLinks.forEach(link => link.classList.toggle('active', link.dataset.page === pageId));
-      history.replaceState(null, '', `#${pageId}`);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        showPage(link.dataset.page);
-      });
-    });
-
-    function setLanguage(lang) {
-      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-      document.querySelectorAll('[data-pt][data-en]').forEach(el => {
-        el.textContent = el.dataset[lang];
-      });
-      ptBtn.classList.toggle('active', lang === 'pt');
-      enBtn.classList.toggle('active', lang === 'en');
-    }
-
-    ptBtn.addEventListener('click', () => setLanguage('pt'));
-    enBtn.addEventListener('click', () => setLanguage('en'));
-
-    const initialHash = window.location.hash.replace('#', '');
-    if (initialHash && document.getElementById(initialHash)) {
-      showPage(initialHash);
-    }
-  </script>
 </body>
 </html>
