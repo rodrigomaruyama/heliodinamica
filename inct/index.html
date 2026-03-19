@@ -89,13 +89,14 @@
       display: flex;
       justify-content: center;
     }
-.lang-switch {
-  max-width: var(--max-width);
-  margin: 10px auto;
-  padding: 0 36px;
-  display: flex;
-  justify-content: flex-end; /* 🔥 ESSA LINHA resolve */
-}
+    .lang-switch {
+      display: inline-flex;
+      gap: 10px;
+      padding: 6px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
     .lang-btn {
       border: 0;
       cursor: pointer;
