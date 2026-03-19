@@ -66,24 +66,27 @@
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div>
-        <h1 class="hero-title">INCT-DAESF</h1>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica.</p>
-      </div>
-      <div class="header-side">
-          <!-- Logo -->
-          <img src="pictures/Logo_1.png" alt="INCT DAESF Logo" style="max-width: 200px; height: auto;">
-          <!-- Botão de idioma -->
-          <div style="margin-top: 10px;">
-              <button onclick="setLanguage('pt')">PT</button>
-              <button onclick="setLanguage('en')">EN</button>
-          </div>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-main">
+      <h1 class="hero-title" data-pt="INCT-DAESF" data-en="INCT-DAESF">INCT-DAESF</h1>
+      <p class="hero-subtitle"
+         data-pt="Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica"
+         data-en="National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications">
+        Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica
+      </p>
+    </div>
+
+    <div class="header-side">
+      <img src="pictures/Logo_1.png" alt="Logo INCT-DAESF" style="max-width: 220px; height: auto;" />
+
+      <div class="lang-switch">
+        <button type="button" class="lang-btn active" onclick="setLanguage('pt')">PT</button>
+        <button type="button" class="lang-btn" onclick="setLanguage('en')">EN</button>
       </div>
     </div>
-  </header>
-
+  </div>
+</header>
   <div class="nav-wrap">
     <nav>
       <a href="#" data-target="inicio" class="nav-link active" data-i18n="navInicio">Início</a>
