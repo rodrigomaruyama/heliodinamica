@@ -6,6 +6,587 @@
   <title>INCT-DAESF</title>
   <style>
     :root {
+      --header-bg: linear-gradient(135deg, #d8b550 0%, #e6c866 55%, #f0d882 100%);
+      --header-accent: #8e6f1c;
+      --menu-bg: #1f3556;
+      --menu-hover: #2c4a78;
+      --menu-active: #34598c;
+      --page-bg: #f3f5f8;
+      --card-bg: #ffffff;
+      --text: #203047;
+      --muted: #5a6778;
+      --border: #d9e0ea;
+      --soft: #eef3f8;
+      --shadow: 0 14px 32px rgba(20, 36, 61, 0.08);
+      --radius: 16px;
+      --max-width: 1240px;
+      --btn-bg: #ffffff;
+      --btn-active: #1f3556;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        var(--page-bg);
+      line-height: 1.7;
+    }
+    a { color: #184b9b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .header {
+      background: var(--header-bg);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      min-height: 260px;
+      padding: 44px 36px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      position: relative;
+    }
+    .hero-title {
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 14px;
+      line-height: 1.05;
+    }
+    .hero-subtitle {
+      color: rgba(255,255,255,.96);
+      margin: 0;
+      font-size: 1.18rem;
+      max-width: 780px;
+    }
+    .header-main { flex: 1 1 auto; min-width: 0; }
+    .header-side { display: flex; align-items: center; justify-content: center; }
+    .site-logo {
+      display: block;
+      width: 265px;
+      max-width: min(265px, 28vw);
+      height: auto;
+      background: rgba(255,255,255,0.98);
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 12px 28px rgba(20, 36, 61, 0.14);
+    }
+    .lang-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-bar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 36px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .lang-switch {
+      display: inline-flex;
+      gap: 10px;
+      padding: 6px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+    .lang-btn {
+      border: 0;
+      cursor: pointer;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-size: .95rem;
+      transition: .2s ease;
+      min-width: 64px;
+    }
+    .lang-btn.active {
+      background: var(--btn-active);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(31, 53, 86, 0.22);
+    }
+    .nav-wrap {
+      background: transparent;
+      box-shadow: none;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 36px;
+    }
+    nav {
+      background: var(--menu-bg);
+      border-radius: 0 0 12px 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+      box-shadow: 0 10px 20px rgba(20, 36, 61, 0.08);
+      overflow: hidden;
+    }
+    nav a {
+      color: white;
+      padding: 16px 18px;
+      display: block;
+      font-size: .98rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: background-color .2s ease, border-color .2s ease;
+    }
+    nav a:hover, nav a.active {
+      background: var(--menu-hover);
+      border-bottom-color: #d8b550;
+      text-decoration: none;
+    }
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .container {
+      max-width: var(--max-width);
+      margin: 34px auto 54px;
+      padding: 0 36px;
+      display: grid;
+      gap: 26px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px 36px;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      color: #17345b;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 72px;
+      height: 3px;
+      background: #d8b550;
+      border-radius: 999px;
+    }
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 1.16rem;
+      color: #17345b;
+    }
+    p { margin: 0 0 14px; }
+    ul { margin: 0; padding-left: 20px; }
+    li { margin: 8px 0; }
+    .lead {
+      font-size: 1.15rem;
+      color: #2d3e56;
+      max-width: 980px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+    }
+    .grid-2 > div {
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #edf3fb;
+      border: 1px solid #d7e3f4;
+      color: #29466f;
+      font-size: .9rem;
+      margin: 4px 8px 4px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 16px;
+      table-layout: fixed;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+    th, td {
+      text-align: left;
+      padding: 14px 14px;
+      border-bottom: 1px solid #e7edf4;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    th {
+      background: #eef3f8;
+      color: #17345b;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) td { background: #fbfcfe; }
+    tbody tr:last-child td { border-bottom: 0; }
+    .muted { color: var(--muted); }
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto 42px;
+      padding: 0 36px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+    @media (max-width: 960px) {
+      .header-inner { min-height: auto; padding: 32px 24px; gap: 24px; }
+      .hero-subtitle { max-width: none; }
+      .site-logo { max-width: 220px; width: 100%; }
+      .container, footer { padding: 0 24px; }
+      .lang-bar-inner { padding: 16px 24px; }
+      nav { justify-content: center; }
+    }
+    @media (max-width: 820px) {
+      .header-inner, .grid-2 { display: block; }
+      .header-side { align-items: flex-start; margin-top: 22px; }
+      .site-logo { max-width: 210px; }
+      nav a { flex: 1 1 auto; text-align: center; }
+      .card { padding: 28px 22px; }
+      h2 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-main">
+      <div style="display:inline-flex; align-items:center; gap:10px; padding:8px 14px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#fff; font-size:.9rem; font-weight:600; margin-bottom:16px;">Rede nacional de pesquisa e inovação em energia solar fotovoltaica</div>
+        <h1 class="hero-title">INCT-DAESF</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica.</p>
+      </div>
+      <div class="header-side">
+        <img class="site-logo" src="pictures/Logo_1.png" alt="Logo INCT-DAESF" />
+      </div>
+    </div>
+  </header>
+
+  <div class="lang-bar">
+    <div class="lang-bar-inner">
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="pt" type="button">PT</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-wrap">
+    <nav>
+      <a href="#" data-target="inicio" class="nav-link active" data-i18n="navInicio">Início</a>
+      <a href="#" data-target="sobre" class="nav-link" data-i18n="navSobre">Sobre</a>
+      <a href="#" data-target="grupos" class="nav-link" data-i18n="navGrupos">Grupos Associados</a>
+      <a href="#" data-target="pesquisa" class="nav-link" data-i18n="navPesquisa">Pesquisa</a>
+      <a href="#" data-target="difusao" class="nav-link" data-i18n="navDifusao">Difusão e Eventos</a>
+      <a href="#" data-target="oportunidades" class="nav-link" data-i18n="navOportunidades">Oportunidades</a>
+      <a href="#" data-target="instituicoes" class="nav-link" data-i18n="navInstituicoes">Instituições e Parceiros</a>
+    </nav>
+  </div>
+
+  <main class="container">
+    <section id="inicio" class="card content-section active">
+      <h2 data-i18n="inicioTitle">Início</h2>
+      <p class="lead" data-i18n="inicioLead">O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.</p>
+    </section>
+
+    <section id="sobre" class="card content-section">
+      <h2 data-i18n="sobreTitle">Sobre</h2>
+      <p data-i18n="sobreP1">O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ciência e tecnologia atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.</p>
+      <p data-i18n="sobreP2">Seu objetivo é desenvolver pesquisa de alto nível, promover a inovação e formar recursos humanos qualificados, contribuindo para a transição do Brasil para uma oferta energética sustentável. O Instituto atua em articulação com os setores empresarial e governamental, promovendo a transferência de conhecimento, o desenvolvimento de soluções tecnológicas e a formulação de políticas públicas.</p>
+      <p data-i18n="sobreP3">Com forte cooperação internacional e interação com o setor produtivo, o INCT-DAESF busca ampliar o impacto científico, tecnológico, econômico e socioambiental da energia solar fotovoltaica, contribuindo para o avanço dessa tecnologia estratégica no país. Suas atividades incluem desde a modelagem e a integração de sistemas até aplicações inovadoras, como armazenamento de energia, hidrogênio verde, mobilidade elétrica, sistemas híbridos e sistemas agrovoltaicos.</p>
+    </section>
+
+    <section id="grupos" class="card content-section">
+      <h2 data-i18n="gruposTitle">Grupos Associados</h2>
+      <p data-i18n="gruposP1">O INCT-DAESF tem sua sede na Universidade de São Paulo (USP), por meio do Instituto de Energia e Ambiente, no Laboratório de Sistemas Fotovoltaicos (LSF-IEE/USP), que dispõe de infraestrutura laboratorial e suporte administrativo para o desenvolvimento das atividades do Instituto. A vice-sede está vinculada à Universidade Federal de Santa Catarina (UFSC), por meio do grupo Fotovoltaica/UFSC, referência nacional na área.</p>
+      <p data-i18n="gruposP2"><strong>Coordenação:</strong> Prof. Dr. Roberto Zilles (LSF-IEE/USP)</p>
+      <p data-i18n="gruposP3"><strong>Vice-coordenação:</strong> Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)</p>
+      <p data-i18n="gruposP4">O INCT-DAESF é composto por grupos de pesquisa associados distribuídos em diferentes instituições brasileiras, com seus respectivos líderes:</p>
+      <table class="groups-table">
+        <colgroup>
+          <col style="width: 34%;">
+          <col style="width: 38%;">
+          <col style="width: 28%;">
+        </colgroup>
+        <thead><tr><th data-i18n="tableGrupo">Grupo / Instituição</th><th data-i18n="tableLider">Líder</th><th data-i18n="tableLattes">Lattes</th></tr></thead>
+        <tbody>
+          <tr><td>LSF-IEE/USP</td><td>Prof. Roberto Zilles</td><td><a href="https://lattes.cnpq.br/0339375192824635" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>FOTOVOLTAICA/UFSC</td><td>Prof. Ricardo Rüther</td><td><a href="https://lattes.cnpq.br/5669240020541721" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>NTEEL/UFSC</td><td>Prof. Dr. Giuliano Arns Rampinelli</td><td><a href="https://lattes.cnpq.br/8730750961111658" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>LABSOL/UFRGS</td><td>Prof. Dr. Fabiano Perin Gasparin</td><td><a href="https://lattes.cnpq.br/5631639380223151" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>GEDAE/UFPA</td><td>Prof. Wilson Negrão Macêdo</td><td><a href="https://lattes.cnpq.br/3386249951714088" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>IFSC (GENERAL)</td><td>Prof. Samuel Luna de Abreu</td><td><a href="https://lattes.cnpq.br/0864784421981857" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>LAF/UFF</td><td>Prof. Dr. Gilberto Figueiredo Pinto Filho</td><td><a href="https://lattes.cnpq.br/4642027221849124" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>LER/UNIFAP</td><td>Prof. Dr. Alaan Ubaiara Brito</td><td><a href="https://lattes.cnpq.br/9194391143997588" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>ISI-ER/SENAI-RN</td><td>Dra. Samira de Azevedo Santos Emiliavaca</td><td><a href="https://lattes.cnpq.br/8334809149422137" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>LAERO/LEA/UFC</td><td>Prof. Dr. Paulo Marques Carvalho</td><td><a href="https://lattes.cnpq.br/0935409654079900" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>UFSCar (Campus Lagoa do Sino)</td><td>Prof. Dr. Rafael Tiezzi</td><td><a href="https://lattes.cnpq.br/7979063304544915" data-i18n="curriculo">Currículo</a></td></tr>
+          <tr><td>UFBA</td><td>Prof. Dr. Osvaldo Soliano Pereira</td><td><a href="https://lattes.cnpq.br/0059972528530672" data-i18n="curriculo">Currículo</a></td></tr>
+        </tbody>
+      </table>
+      <p class="muted" data-i18n="gruposMuted">Esses grupos compõem uma rede colaborativa que integra competências complementares e infraestrutura avançada, permitindo o desenvolvimento de projetos cooperativos em escala nacional e internacional.</p>
+    </section>
+
+    <section id="pesquisa" class="card content-section">
+      <h2 data-i18n="pesquisaTitle">Pesquisa</h2>
+      <p data-i18n="pesquisaP1">O INCT-DAESF estrutura suas atividades em um conjunto de pesquisas interdependentes, organizadas de forma colaborativa entre diferentes instituições de ensino e pesquisa. Cada meta é coordenada por um laboratório associado e é executada com a participação integrada dos demais grupos da rede.</p>
+      <table class="research-table">
+        <colgroup>
+          <col style="width: 36%;">
+          <col style="width: 64%;">
+        </colgroup>
+        <thead>
+          <tr><th data-i18n="eixo">Eixo</th><th data-i18n="descricao">Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-i18n="e1">Modelagem e qualificação de sistemas FV</td><td data-i18n="d1">Atividades conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP.</td></tr>
+          <tr><td data-i18n="e2">Avaliação termoenergética de edificações</td><td data-i18n="d2">Desenvolvida com participação do LAF – UFF e UFSM.</td></tr>
+          <tr><td data-i18n="e3">Armazenamento de energia</td><td data-i18n="d3">Integração da geração fotovoltaica com sistemas de armazenamento por grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC.</td></tr>
+          <tr><td data-i18n="e4">Hidrogênio verde</td><td data-i18n="d4">Atividades concentradas no grupo FOTOVOLTAICA – UFSC.</td></tr>
+          <tr><td data-i18n="e5">Previsão do recurso solar e calibração</td><td data-i18n="d5">Coordenadas por UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP.</td></tr>
+          <tr><td data-i18n="e6">Integração à rede e minirredes</td><td data-i18n="d6">Trabalhos conduzidos por NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP.</td></tr>
+          <tr><td data-i18n="e7">Sistemas híbridos</td><td data-i18n="d7">Desenvolvimento solar-eólico coordenado por LAERO/LEA – UFC.</td></tr>
+          <tr><td data-i18n="e8">Sistemas agrovoltaicos</td><td data-i18n="d8">Liderados pelos grupos da FOTOVOLTAICA – UFSC e LSF – IEE/USP.</td></tr>
+          <tr><td data-i18n="e9">Ensaios experimentais e conformidade</td><td data-i18n="d9">Com destaque para LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA.</td></tr>
+          <tr><td data-i18n="e10">Comunidades isoladas</td><td data-i18n="d10">Aplicações voltadas à eletrificação em projetos da UFPA e da UNIFAP.</td></tr>
+          <tr><td data-i18n="e11">Estudos econômicos e regulatórios</td><td data-i18n="d11">Conduzidos pela UFBA e pela UFSCar.</td></tr>
+          <tr><td data-i18n="e12">Formação de recursos humanos e difusão</td><td data-i18n="d12">Meta transversal que envolve todos os grupos participantes.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="difusao" class="card content-section">
+      <h2 data-i18n="difusaoTitle">Difusão e Eventos</h2>
+      <p data-i18n="difusaoP1">A estratégia de difusão do INCT-DAESF baseia-se na ampla disseminação do conhecimento científico, tecnológico e aplicado gerado pelo Instituto, visando alcançar a comunidade acadêmica, o setor produtivo e a sociedade em geral.</p>
+      <p data-i18n="difusaoP2">As ações incluem a publicação de resultados em periódicos científicos de alto impacto e em revistas técnicas, bem como a participação em conferências nacionais e internacionais. Complementarmente, o INCT promove seminários, eventos e transmissões online, ampliando o acesso ao conhecimento e incentivando a formação de novos pesquisadores.</p>
+      <p data-i18n="difusaoP3">A interação com o setor produtivo é fortalecida por meio de parcerias com associações e empresas do setor energético, o que favorece a transferência de tecnologia e a aplicação prática dos resultados. Além disso, o Instituto investe na divulgação científica em mídias digitais e canais abertos, contribuindo para a popularização da ciência e para o engajamento da sociedade na transição energética.</p>
+    </section>
+
+    <section id="oportunidades" class="card content-section">
+      <h2 data-i18n="oportunidadesTitle">Oportunidades</h2>
+      <p data-i18n="oportunidadesP1">O INCT-DAESF oferece diversas oportunidades de participação e atuação para estudantes e profissionais interessados no desenvolvimento científico e tecnológico na área de energia solar fotovoltaica.</p>
+      <div class="grid-2">
+        <div>
+          <h3 data-i18n="estudantesTitle">Para estudantes</h3>
+          <ul>
+            <li data-i18n="est1">Bolsas de Iniciação Científica (IC)</li>
+            <li data-i18n="est2">Participação em projetos experimentais, de modelagem e estudos aplicados</li>
+            <li data-i18n="est3">Bolsas de Desenvolvimento Tecnológico e Industrial (DTI)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="posTitle">Para pós-graduação e profissionais</h3>
+          <ul>
+            <li data-i18n="pos1">Mestrado e Doutorado em temas estratégicos</li>
+            <li data-i18n="pos2">Projetos cooperativos nacionais e internacionais</li>
+            <li data-i18n="pos3">Mobilidade acadêmica e ambiente multidisciplinar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="instituicoes" class="card content-section">
+      <h2 data-i18n="instituicoesTitle">Instituições e Parceiros</h2>
+      <p data-i18n="instituicoesP1">O INCT-DAESF estabelece uma ampla rede de parcerias nacionais e internacionais, envolvendo instituições de pesquisa e empresas estratégicas, com o objetivo de fortalecer a pesquisa, promover a inovação e ampliar o impacto das aplicações da energia solar fotovoltaica no Brasil.</p>
+
+      <h3 data-i18n="internacionaisTitle">Instituições internacionais parceiras</h3>
+      <div>
+        <span class="pill">Instituto de Energía Solar – UPM</span>
+        <span class="pill">Universidad de Jaén</span>
+        <span class="pill">University of Bristol</span>
+        <span class="pill">Fraunhofer ISE / Fraunhofer Chile</span>
+        <span class="pill">Solar Energy Research Institute of Singapore</span>
+        <span class="pill">Australian National University</span>
+        <span class="pill">Technische Universität Ingolstadt</span>
+        <span class="pill">Technische Hochschule Köln</span>
+        <span class="pill">The University of Tokyo</span>
+        <span class="pill">Sandia National Laboratories</span>
+        <span class="pill">Universidad de la República</span>
+        <span class="pill">Pontificia Universidad Católica de Chile</span>
+      </div>
+
+      <h3 data-i18n="empresasTitle">Empresas parceiras</h3>
+      <div>
+        <span class="pill">BYD Energy do Brasil</span>
+        <span class="pill">Instituto Hercílio Randon</span>
+        <span class="pill">PHB Eletrônica Ltda.</span>
+        <span class="pill">JA Solar Brasil</span>
+        <span class="pill">Huawei do Brasil Telecomunicações Ltda.</span>
+        <span class="pill">WEG Turbinas e Solar Ltda.</span>
+        <span class="pill">China Three Gorges Brasil</span>
+      </div>
+    </section>
+  </main>
+
+  <footer data-i18n="footerText">
+    Página atualizada com base no conteúdo institucional fornecido para o INCT-DAESF.
+  </footer>
+
+  <script>
+    const translations = {
+      pt: {
+        heroSubtitle: 'Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento das Aplicações da Energia Solar Fotovoltaica.',
+        navInicio: 'Início', navSobre: 'Sobre', navGrupos: 'Grupos Associados', navPesquisa: 'Pesquisa', navDifusao: 'Difusão e Eventos', navOportunidades: 'Oportunidades', navInstituicoes: 'Instituições e Parceiros',
+        inicioTitle: 'Início',
+        inicioLead: 'O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.',
+        sobreTitle: 'Sobre',
+        sobreP1: 'O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ciência e tecnologia atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.',
+        sobreP2: 'Seu objetivo é desenvolver pesquisa de alto nível, promover a inovação e formar recursos humanos qualificados, contribuindo para a transição do Brasil para uma oferta energética sustentável. O Instituto atua em articulação com os setores empresarial e governamental, promovendo a transferência de conhecimento, o desenvolvimento de soluções tecnológicas e a formulação de políticas públicas.',
+        sobreP3: 'Com forte cooperação internacional e interação com o setor produtivo, o INCT-DAESF busca ampliar o impacto científico, tecnológico, econômico e socioambiental da energia solar fotovoltaica, contribuindo para o avanço dessa tecnologia estratégica no país. Suas atividades incluem desde a modelagem e a integração de sistemas até aplicações inovadoras, como armazenamento de energia, hidrogênio verde, mobilidade elétrica, sistemas híbridos e sistemas agrovoltaicos.',
+        gruposTitle: 'Grupos Associados',
+        gruposP1: 'O INCT-DAESF tem sua sede na Universidade de São Paulo (USP), por meio do Instituto de Energia e Ambiente, no Laboratório de Sistemas Fotovoltaicos (LSF-IEE/USP), que dispõe de infraestrutura laboratorial e suporte administrativo para o desenvolvimento das atividades do Instituto. A vice-sede está vinculada à Universidade Federal de Santa Catarina (UFSC), por meio do grupo Fotovoltaica/UFSC, referência nacional na área.',
+        gruposP2: '<strong>Coordenação:</strong> Prof. Dr. Roberto Zilles (LSF-IEE/USP)',
+        gruposP3: '<strong>Vice-coordenação:</strong> Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)',
+        gruposP4: 'O INCT-DAESF é composto por grupos de pesquisa associados distribuídos em diferentes instituições brasileiras, com seus respectivos líderes:',
+        tableGrupo: 'Grupo / Instituição', tableLider: 'Líder', tableLattes: 'Lattes', curriculo: 'Currículo',
+        gruposMuted: 'Esses grupos compõem uma rede colaborativa que integra competências complementares e infraestrutura avançada, permitindo o desenvolvimento de projetos cooperativos em escala nacional e internacional.',
+        pesquisaTitle: 'Pesquisa', pesquisaP1: 'O INCT-DAESF estrutura suas atividades em um conjunto de pesquisas interdependentes, organizadas de forma colaborativa entre diferentes instituições de ensino e pesquisa. Cada meta é coordenada por um laboratório associado e é executada com a participação integrada dos demais grupos da rede.',
+        eixo: 'Eixo', descricao: 'Descrição',
+        e1: 'Modelagem e qualificação de sistemas FV', d1: 'Atividades conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP.',
+        e2: 'Avaliação termoenergética de edificações', d2: 'Desenvolvida com participação do LAF – UFF e UFSM.',
+        e3: 'Armazenamento de energia', d3: 'Integração da geração fotovoltaica com sistemas de armazenamento por grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC.',
+        e4: 'Hidrogênio verde', d4: 'Atividades concentradas no grupo FOTOVOLTAICA – UFSC.',
+        e5: 'Previsão do recurso solar e calibração', d5: 'Coordenadas por UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP.',
+        e6: 'Integração à rede e minirredes', d6: 'Trabalhos conduzidos por NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP.',
+        e7: 'Sistemas híbridos', d7: 'Desenvolvimento solar-eólico coordenado por LAERO/LEA – UFC.',
+        e8: 'Sistemas agrovoltaicos', d8: 'Liderados pelos grupos da FOTOVOLTAICA – UFSC e LSF – IEE/USP.',
+        e9: 'Ensaios experimentais e conformidade', d9: 'Com destaque para LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA.',
+        e10: 'Comunidades isoladas', d10: 'Aplicações voltadas à eletrificação em projetos da UFPA e da UNIFAP.',
+        e11: 'Estudos econômicos e regulatórios', d11: 'Conduzidos pela UFBA e pela UFSCar.',
+        e12: 'Formação de recursos humanos e difusão', d12: 'Meta transversal que envolve todos os grupos participantes.',
+        difusaoTitle: 'Difusão e Eventos',
+        difusaoP1: 'A estratégia de difusão do INCT-DAESF baseia-se na ampla disseminação do conhecimento científico, tecnológico e aplicado gerado pelo Instituto, visando alcançar a comunidade acadêmica, o setor produtivo e a sociedade em geral.',
+        difusaoP2: 'As ações incluem a publicação de resultados em periódicos científicos de alto impacto e em revistas técnicas, bem como a participação em conferências nacionais e internacionais. Complementarmente, o INCT promove seminários, eventos e transmissões online, ampliando o acesso ao conhecimento e incentivando a formação de novos pesquisadores.',
+        difusaoP3: 'A interação com o setor produtivo é fortalecida por meio de parcerias com associações e empresas do setor energético, o que favorece a transferência de tecnologia e a aplicação prática dos resultados. Além disso, o Instituto investe na divulgação científica em mídias digitais e canais abertos, contribuindo para a popularização da ciência e para o engajamento da sociedade na transição energética.',
+        oportunidadesTitle: 'Oportunidades',
+        oportunidadesP1: 'O INCT-DAESF oferece diversas oportunidades de participação e atuação para estudantes e profissionais interessados no desenvolvimento científico e tecnológico na área de energia solar fotovoltaica.',
+        estudantesTitle: 'Para estudantes', est1: 'Bolsas de Iniciação Científica (IC)', est2: 'Participação em projetos experimentais, de modelagem e estudos aplicados', est3: 'Bolsas de Desenvolvimento Tecnológico e Industrial (DTI)',
+        posTitle: 'Para pós-graduação e profissionais', pos1: 'Mestrado e Doutorado em temas estratégicos', pos2: 'Projetos cooperativos nacionais e internacionais', pos3: 'Mobilidade acadêmica e ambiente multidisciplinar',
+        instituicoesTitle: 'Instituições e Parceiros',
+        instituicoesP1: 'O INCT-DAESF estabelece uma ampla rede de parcerias nacionais e internacionais, envolvendo instituições de pesquisa e empresas estratégicas, com o objetivo de fortalecer a pesquisa, promover a inovação e ampliar o impacto das aplicações da energia solar fotovoltaica no Brasil.',
+        internacionaisTitle: 'Instituições internacionais parceiras', empresasTitle: 'Empresas parceiras',
+        footerText: 'Página atualizada com base no conteúdo institucional fornecido para o INCT-DAESF.'
+      },
+      en: {
+        heroSubtitle: 'National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications.',
+        navInicio: 'Home', navSobre: 'About', navGrupos: 'Associated Groups', navPesquisa: 'Research', navDifusao: 'Outreach and Events', navOportunidades: 'Opportunities', navInstituicoes: 'Institutions and Partners',
+        inicioTitle: 'Home',
+        inicioLead: 'The INCT for the Development of Photovoltaic Solar Energy Applications is a research network that brings together 14 Brazilian research institutions. It is focused on technological innovation in photovoltaic solar energy applications.',
+        sobreTitle: 'About',
+        sobreP1: 'The National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications (INCT-DAESF) is a Brazilian nationwide network dedicated to scientific research, technological development, and innovation in photovoltaic systems and their applications for energy supply in both isolated and grid-connected systems. The Institute brings together 14 active science and technology institutions in the country, forming a collaborative network with significant expertise and infrastructure in the field. More than a cluster of laboratories, INCT-DAESF consolidates established partnerships and enhances results through integrated and interdisciplinary action.',
+        sobreP2: 'Its mission is to carry out high-level research, promote innovation, and train qualified human resources, contributing to Brazil\'s transition toward a sustainable energy supply. The Institute operates in coordination with industry and government, fostering knowledge transfer, technological solutions, and public policy development.',
+        sobreP3: 'With strong international cooperation and interaction with the productive sector, INCT-DAESF seeks to expand the scientific, technological, economic, and socio-environmental impact of photovoltaic solar energy, contributing to the advancement of this strategic technology in Brazil. Its activities range from system modeling and integration to innovative applications such as energy storage, green hydrogen, electric mobility, hybrid systems, and agrivoltaic systems.',
+        gruposTitle: 'Associated Groups',
+        gruposP1: 'INCT-DAESF is headquartered at the University of São Paulo (USP), through the Institute of Energy and Environment, at the Photovoltaic Systems Laboratory (LSF-IEE/USP), which provides laboratory infrastructure and administrative support for the Institute\'s activities. The vice-headquarters is linked to the Federal University of Santa Catarina (UFSC), through the Fotovoltaica/UFSC group, a national reference in the field.',
+        gruposP2: '<strong>Coordinator:</strong> Prof. Dr. Roberto Zilles (LSF-IEE/USP)',
+        gruposP3: '<strong>Vice-Coordinator:</strong> Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)',
+        gruposP4: 'INCT-DAESF is composed of associated research groups distributed across different Brazilian institutions, with their respective leaders:',
+        tableGrupo: 'Group / Institution', tableLider: 'Leader', tableLattes: 'Lattes CV', curriculo: 'CV',
+        gruposMuted: 'These groups form a collaborative network that integrates complementary expertise and advanced infrastructure, enabling cooperative projects on national and international scales.',
+        pesquisaTitle: 'Research', pesquisaP1: 'INCT-DAESF structures its activities as a set of interdependent research fronts, collaboratively organized among different teaching and research institutions. Each goal is coordinated by an associated laboratory and carried out with the integrated participation of the other groups in the network.',
+        eixo: 'Research Axis', descricao: 'Description',
+        e1: 'PV system modeling and qualification', d1: 'Activities carried out by groups such as LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and LSF – IEE/USP.',
+        e2: 'Thermo-energetic assessment of buildings', d2: 'Developed with the participation of LAF – UFF and UFSM.',
+        e3: 'Energy storage', d3: 'Integration of photovoltaic generation with storage systems by groups from FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA, and GENERAL – IFSC.',
+        e4: 'Green hydrogen', d4: 'Activities concentrated in the FOTOVOLTAICA – UFSC group.',
+        e5: 'Solar resource forecasting and calibration', d5: 'Coordinated by UNIFESP, SENAI ISI-ER/LES-RN, and LSF – IEE/USP.',
+        e6: 'Grid integration and microgrids', d6: 'Research carried out by NTEEL – UFSC, GEDAE – UFPA, and LER – UNIFAP.',
+        e7: 'Hybrid systems', d7: 'Solar-wind development coordinated by LAERO/LEA – UFC.',
+        e8: 'Agrivoltaic systems', d8: 'Led by the FOTOVOLTAICA – UFSC and LSF – IEE/USP groups.',
+        e9: 'Experimental testing and conformity', d9: 'With emphasis on LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and GEDAE – UFPA.',
+        e10: 'Isolated communities', d10: 'Applications focused on electrification in projects carried out by UFPA and UNIFAP.',
+        e11: 'Economic and regulatory studies', d11: 'Conducted by UFBA and UFSCar.',
+        e12: 'Human resource training and outreach', d12: 'A cross-cutting goal involving all participating groups.',
+        difusaoTitle: 'Outreach and Events',
+        difusaoP1: 'INCT-DAESF\'s outreach strategy is based on the broad dissemination of the scientific, technological, and applied knowledge generated by the Institute, aiming to reach the academic community, the productive sector, and society at large.',
+        difusaoP2: 'Actions include publishing results in high-impact scientific journals and technical magazines, as well as participating in national and international conferences. In addition, the Institute promotes seminars, events, and online broadcasts, expanding access to knowledge and encouraging the training of new researchers.',
+        difusaoP3: 'Interaction with the productive sector is strengthened through partnerships with associations and companies in the energy sector, fostering technology transfer and the practical application of results. In addition, the Institute invests in science communication through digital media and open channels, contributing to the popularization of science and to society\'s engagement in the energy transition.',
+        oportunidadesTitle: 'Opportunities',
+        oportunidadesP1: 'INCT-DAESF offers several opportunities for participation and engagement for students and professionals interested in scientific and technological development in the field of photovoltaic solar energy.',
+        estudantesTitle: 'For students', est1: 'Undergraduate Research Scholarships (IC)', est2: 'Participation in experimental projects, modeling activities, and applied studies', est3: 'Technological and Industrial Development Scholarships (DTI)',
+        posTitle: 'For graduate students and professionals', pos1: 'Master\'s and PhD research on strategic topics', pos2: 'National and international cooperative projects', pos3: 'Academic mobility and a multidisciplinary environment',
+        instituicoesTitle: 'Institutions and Partners',
+        instituicoesP1: 'INCT-DAESF maintains a broad network of national and international partnerships involving research institutions and strategic companies, with the goal of strengthening research, promoting innovation, and expanding the impact of photovoltaic solar energy applications in Brazil.',
+        internacionaisTitle: 'International partner institutions', empresasTitle: 'Partner companies',
+        footerText: 'Page updated based on the institutional content provided for INCT-DAESF.'
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const links = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('.content-section');
+      const langButtons = document.querySelectorAll('.lang-btn');
+
+      function showSection(targetId) {
+        sections.forEach(section => {
+          section.classList.toggle('active', section.id === targetId);
+        });
+        links.forEach(link => {
+          link.classList.toggle('active', link.dataset.target === targetId);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (translations[lang] && translations[lang][key] !== undefined) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+        langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          showSection(this.dataset.target);
+        });
+      });
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          applyLanguage(this.dataset.lang);
+        });
+      });
+
+      showSection('inicio');
+      applyLanguage('pt');
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INCT-DAESF</title>
+  <style>
+    :root {
       --header-bg: #eecb63;
       --menu-bg: #3d3d3d;
       --menu-hover: #565656;
