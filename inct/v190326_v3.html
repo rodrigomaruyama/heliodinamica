@@ -90,6 +90,50 @@ nav {
     th { background:#f7f7f7; }
     .muted { color: var(--muted); }
     footer { max-width: var(--max-width); margin: 0 auto 40px; padding: 0 36px; color: var(--muted); font-size: .92rem; }
+
+    .inicio-section {
+  background: #efefef;
+  padding: 40px 36px;
+  border-radius: 6px;
+}
+
+.inicio-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.inicio-texto {
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.inicio-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-item img {
+  height: 60px;
+  object-fit: contain;
+}
+
+.logo-item p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+    
     /* @media (max-width: 820px) {
       .header-inner, .grid-2 { grid-template-columns: 1fr; display:block; }
       .header-side { align-items:flex-start; margin-top:18px; }
@@ -108,6 +152,11 @@ nav {
   .header-inner { padding: 24px 18px; }
   .nav-wrap { padding: 0 18px; }
   nav a { flex: 1 1 auto; text-align:center; }
+      .inicio-logos {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
 }
   </style>
 </head>
@@ -146,11 +195,34 @@ nav {
   </div>
 
   <main class="container">
-    <section id="inicio" class="card content-section active">
+    
+    <!-- <section id="inicio" class="card content-section active">
       <h2 data-i18n="inicioTitle">Início</h2>
       <p class="lead" data-i18n="inicioLead">O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.</p>
     </section>
+     -->
+<section id="inicio" class="inicio-section">
+  <h2>INICIO</h2>
 
+  <p class="inicio-texto">
+    O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.
+  </p>
+
+  <div class="inicio-logos">
+    
+    <div class="logo-item">
+      <img src="pictures/lsf.png" alt="LSF IEE USP">
+      <p>(Roberto Zilles)<br>Coordenação</p>
+    </div>
+
+    <div class="logo-item">
+      <img src="pictures/ufsc.jpg" alt="Fotovoltaica UFSC">
+      <p>(Ricardo Ruther)<br>Vice-coordenação</p>
+    </div>
+
+  </div>
+</section>
+    
     <section id="sobre" class="card content-section">
       <h2 data-i18n="sobreTitle">Sobre</h2>
       <p data-i18n="sobreP1">O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ciência e tecnologia atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.</p>
