@@ -168,7 +168,55 @@
       height: auto;
       object-fit: contain;
     }
+    .mapa-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
+.mapa-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mapa-label {
+  position: absolute;
+  font-size: 0.8rem;
+  color: #111;
+  text-decoration: none;
+  background: rgba(255,255,255,0.9);
+  padding: 3px 6px;
+  border-radius: 4px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.mapa-label:hover {
+  background: #0b57d0;
+  color: white;
+}
+
+    .label-unifap { top: 12%; left: 58%; }
+.label-ufpa   { top: 28%; left: 55%; }
+.label-isi    { top: 36%; left: 72%; }
+.label-ufc    { top: 32%; left: 78%; }
+
+.label-ufba   { top: 48%; left: 68%; }
+.label-uff    { top: 70%; left: 70%; }
+
+.label-usp    { top: 76%; left: 60%; }
+.label-unifesp{ top: 80%; left: 60%; }
+
+.label-fotov  { top: 86%; left: 60%; }
+.label-nteel  { top: 90%; left: 60%; }
+.label-ifsc   { top: 92%; left: 62%; }
+
+.label-labsol { top: 94%; left: 58%; }
+.label-ufsm   { top: 96%; left: 52%; }
+
+.label-ufscar { top: 80%; left: 50%; }
+    
   @media (max-width: 820px) {
     .header-inner, .grid-2 { grid-template-columns: 1fr; display:block; }
     .header-side { align-items:flex-start; margin-top:18px; }
@@ -240,9 +288,94 @@
           </p>
         </div>
       </div>
-      <div class="inicio-mapa">
-        <img src="pictures/mapa.svg" alt="Mapa do Brasil">
-      </div>
+
+      <div class="mapa-container">
+
+  <img src="pictures/mapa_grupos.png" alt="Mapa do Brasil">
+
+  <!-- SENAI ISI-ER -->
+  <a href="https://www.rn.senai.br/isi-er/" target="_blank"
+     class="mapa-label label-isi">
+     ISI-ER (Samira de Azevedo Santos Emiliavaca)
+  </a>
+
+  <!-- GEDAE UFPA -->
+  <a href="https://www.gedae.ufpa.br/" target="_blank"
+     class="mapa-label label-ufpa">
+     UFPA/GEDAE (Wilson Negrão Macêdo)
+  </a>
+
+  <!-- NTEEL UFSC -->
+  <a href="https://nteel.ufsc.br/" target="_blank"
+     class="mapa-label label-nteel">
+     NTEEL/UFSC (Giuliano Arns Rampinelli)
+  </a>
+
+  <!-- LABSOL UFRGS -->
+  <a href="https://www.ufrgs.br/labsol/" target="_blank"
+     class="mapa-label label-labsol">
+     LABSOL/UFRGS (Fabiano Perin Gasparin)
+  </a>
+
+  <!-- FOTOVOLTAICA UFSC -->
+  <a href="https://fotovoltaica.ufsc.br/sistemas/fotov/" target="_blank"
+     class="mapa-label label-fotov">
+     FOTOVOLTAICA-UFSC (Ricardo Rüther)
+  </a>
+
+  <!-- LSF USP -->
+  <a href="https://lsf.iee.usp.br/" target="_blank"
+     class="mapa-label label-usp">
+     LSF-IEE/USP (Roberto Zilles)
+  </a>
+
+  <!-- UNIFAP -->
+  <a href="https://www2.unifap.br/eletrica/academico/laboratorios/laboratorio-de-energias-renovaveis/"
+     target="_blank"
+     class="mapa-label label-unifap">
+     UNIFAP (Alaan Ubaiara Brito)
+  </a>
+
+  <!-- UNIFESP -->
+  <a href="http://dgp.cnpq.br/dgp/espelhogrupo/674951"
+     target="_blank"
+     class="mapa-label label-unifesp">
+     UNIFESP (Fernando Ramos Martins)
+  </a>
+
+  <!-- UFSM -->
+  <a href="http://dgp.cnpq.br/dgp/espelhogrupo/802286"
+     target="_blank"
+     class="mapa-label label-ufsm">
+     UFSM (Isis Portolan dos Santos)
+  </a>
+
+  <!-- IFSC GENERAL -->
+  <a href="http://dgp.cnpq.br/dgp/espelhogrupo/8691"
+     target="_blank"
+     class="mapa-label label-ifsc">
+     IFSC/GENERAL (Samuel Luna de Abreu)
+  </a>
+
+  <!-- SEM LINK -->
+  <span class="mapa-label label-uff">
+    UFF (Gilberto Figueiredo Pinto Filho)
+  </span>
+
+  <span class="mapa-label label-ufba">
+    UFBA (Osvaldo Lívio Soliano)
+  </span>
+
+  <span class="mapa-label label-ufscar">
+    UFSCar/Lagoa do Sino (Rafael Tiezzi)
+  </span>
+
+  <span class="mapa-label label-ufc">
+    UFC (Paulo Marques de Carvalho)
+  </span>
+
+</div>
+      
     </section>
 
     <section id="sobre" class="card content-section">
