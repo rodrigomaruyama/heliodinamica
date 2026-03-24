@@ -24,11 +24,41 @@
     a { color: #0b57d0; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .header { background: var(--header-bg); border-bottom: 1px solid rgba(0,0,0,.15); box-shadow: var(--shadow); }
-    .header-inner { max-width: var(--max-width); margin: 0 auto; min-height: 220px; padding: 36px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 220px;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
     .hero-title { color:white; font-size: clamp(2.2rem, 5vw, 4rem); font-weight:300; margin:0; line-height:1.1; }
-    .hero-subtitle { color:rgba(255,255,255,.92); margin-top:12px; font-size:1.08rem; max-width:800px; }
-    .header-main { flex: 1 1 auto; min-width: 0; }
-    .header-side { display:flex; align-items:center; justify-content:center; }
+    
+    .hero-subtitle {
+  color: rgba(255,255,255,.92);
+  margin-top: 12px;
+  font-size: clamp(0.82rem, 1.5vw, 1.08rem);
+  max-width: none;
+  width: 100%;
+  white-space: nowrap;
+}
+    
+    .header-main {
+  order: 2;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+    
+    .header-side {
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+}
+    
     .site-logo {
       display:block; width: 150px; max-width: min(150px, 30vw); height:auto;
       background: rgba(255,255,255,0.92); padding: 8px; border-radius: 8px;
@@ -159,12 +189,12 @@
 <body>
   <header class="header">
     <div class="header-inner">
+      <div class="header-side">
+        <img class="site-logo" src="pictures/Logo_1.png" alt="Logo INCT-DAESF" />
+      </div>
       <div class="header-main">
         <h1 class="hero-title">INCT-DAESF</h1>
         <p class="hero-subtitle" data-i18n="heroSubtitle">Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento de Aplicações da Energia Solar Fotovoltaica.</p>
-      </div>
-      <div class="header-side">
-        <img class="site-logo" src="pictures/Logo_1.png" alt="Logo INCT-DAESF" />
       </div>
     </div>
   </header>
