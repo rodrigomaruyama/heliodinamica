@@ -1,760 +1,450 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INCT-DAESF</title>
-  <style>
-    :root {
-      --header-bg: #eecb63;
-      --menu-bg: #3d3d3d;
-      --menu-hover: #565656;
-      --page-bg: #e9e9e9;
-      --card-bg: #ffffff;
-      --text: #333333;
-      --muted: #666666;
-      --shadow: 0 2px 10px rgba(0,0,0,0.12);
-      --radius: 14px;
-      --max-width: 1200px;
-      --btn-bg: rgba(255,255,255,.85);
-      --btn-active: #ffffff;
-    }
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin:0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--page-bg); line-height: 1.6; }
-    a { color: #0b57d0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .header { background: var(--header-bg); border-bottom: 1px solid rgba(0,0,0,.15); box-shadow: var(--shadow); }
-    .header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  min-height: 140px;
-  padding: 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-}
-    .hero-title { color: var(--menu-bg); font-size: clamp(2.2rem, 5vw, 4rem); font-weight:300; margin:0; line-height:1.1; }
-    
-.hero-subtitle {
-  color: rgba(255,255,255,.92);
-  margin-top: 12px;
-  font-size: clamp(0.82rem, 1.5vw, 1.08rem);
-  max-width: none;
-  width: 100%;
-  white-space: normal;
-}
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F14PRVY0LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    
-    .header-main {
-  order: 2;
-  flex: 1 1 auto;
-  min-width: 0;
+  gtag('config', 'G-F14PRVY0LD');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Heliodinâmica — Histórico e Legado de Bruno Topel</title>
+<meta name="description" content="Histórico da Heliodinâmica, primeira empresa de energia solar fotovoltaica do Brasil, e a trajetória de seu fundador Bruno Topel." />
+<style>
+:root{
+--bg-overlay: rgba(255,255,255,0.86);
+--text: #0f172a;
+--muted: #334155;
+--brand: #eab308;
+--accent: #0ea5e9;
+--maxw: 980px;
 }
-    
-    .header-side {
-  order: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 0 0 auto;
+html,body{
+height:100%;
+margin:0;
+font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+color: var(--text);
+line-height:1.6;
 }
-    
-    .site-logo {
-      display:block; width: 100px; max-width: min(100px, 30vw); height:auto;
-      background: rgba(255,255,255,0.92); padding: 8px; border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-    .logo-link { display:block; text-decoration:none; }
-    .lang-bar { background:#dcdcdc; border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08); }
-    .lang-bar-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px 36px;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .lang-switch { display:flex; gap:12px; }
-    .lang-btn {
-      border:0; cursor:pointer; padding:10px 18px; border-radius:999px;
-      background:var(--btn-bg); color:#111; font-weight:700; box-shadow: var(--shadow);
-      min-width: 68px;
-    }
-    .lang-btn.active { background: var(--btn-active); outline: 3px solid rgba(0,0,0,.65); }
-    .nav-wrap {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 36px;
-    }
-    nav {
-      background: var(--menu-bg);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      box-shadow: var(--shadow);
-      justify-content: flex-start;
-      border-radius: 0 0 var(--radius) var(--radius);
-      overflow: hidden;
-    }
-    nav a { color:white; padding:16px 18px; display:block; font-size:1rem; white-space:nowrap; }
-    nav a:hover, nav a.active { background: var(--menu-hover); text-decoration:none; }
-    .content-section { display: none; }
-    .content-section.active { display: block; }
-    .container { max-width: var(--max-width); margin: 28px auto 48px; padding: 0 36px; display:grid; gap:24px; }
-    .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; }
-    h2 { margin: 0 0 16px; font-size: 1.8rem; }
-    h3 { margin: 24px 0 10px; font-size: 1.15rem; }
-    p { margin: 0 0 12px; }
-    ul { margin: 0; padding-left: 20px; }
-    li { margin: 6px 0; }
-    .lead { font-size: 1.08rem; color: #444; }
-    .grid-2 { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; }
-    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#f4f4f4; color:#444; font-size:.88rem; margin: 3px 6px 3px 0; }
-    .logos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 18px;
-      align-items: center;
-      margin: 8px 0;
-    }
-    .logo-parceiro {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      border: 1px solid #e4e4e4;
-      border-radius: var(--radius);
-      padding: 16px;
-      min-height: 96px;
-    }
-    .logo-parceiro img {
-      display: block;
-      max-width: 100%;
-      max-height: 64px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-    table { width:100%; border-collapse: collapse; margin-top: 12px; }
-    th, td { text-align:left; padding:12px 10px; border-bottom:1px solid #e4e4e4; vertical-align: top; }
-    th { background:#f7f7f7; }
-    .muted { color: var(--muted); }
-    footer { max-width: var(--max-width); margin: 0 auto 40px; padding: 0 36px; color: var(--muted); font-size: .92rem; }
+body{
+background-image: url("assets/heliodinamica_modulo.jpg");
+background-size: cover;
+background-position: top center;
+background-repeat: repeat-y;
+background-attachment: scroll;
+padding-top: clamp(40px, 12vw, 80px); /* 🔹 cria o espaço no topo */
+}
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: clamp(16px, 3vw, 28px); }
+.panel{
+background: var(--bg-overlay);
+backdrop-filter: blur(2px);
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0,0,0,.12);
+padding: clamp(18px, 3.2vw, 36px);
+margin: 18px auto;
+}
+header{ padding-top: clamp(24px, 6vw, 80px); }
+h1{ margin: 0 0 8px 0; font-size: clamp(28px, 4.5vw, 44px); }
+.sub{ margin: 0 0 20px 0; color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
+.lead{ font-size: clamp(16px, 2.2vw, 20px); border-left: 4px solid var(--brand); padding-left: 12px; margin: 18px 0 26px 0; }
+h2{ font-size: clamp(22px, 3.5vw, 30px); margin-top: 28px; }
+h3{ margin-top: 22px; }
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+.badge{ display:inline-block; background: #111827; color: #fff; padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+.grid{ display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card{ background: #ffffffd0; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 14px 16px; }
+.foot{ color: #0b1020; font-size: 13px; opacity: .9; margin-top: 26px; }
+.legend{ font-size: 13px; color: var(--muted); }
+.timeline li{ margin: 10px 0; }
+.caps{ text-transform: uppercase; letter-spacing:.08em; font-weight:700; color:#111827; font-size: 13px;}
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+border-radius: 12px;
+box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+margin-top: 20px;
+}
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: 0;
+}
+ol.download-list {
+margin-left: 20px;
+padding-left: 10px;
+}
+ol.download-list li {
+margin-bottom: 10px;
+line-height: 1.5;
+}
+ol.download-list a {
+color: var(--accent);
+font-weight: 600;
+}
+</style>
 
-    .inicio-section {
-      background: #efefef;
-      padding: 36px 40px;
-      border-radius: var(--radius);
-    }
-    .inicio-section h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 18px;
-      text-transform: uppercase;
-    }
-    .inicio-texto {
-      max-width: 980px;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0 0 28px;
-    }
-    .inicio-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 110px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .logo-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    .logo-item img {
-      display: block;
-      max-height: 64px;
-      width: auto;
-      object-fit: contain;
-    }
-    .logo-item p {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.25;
-      color: var(--text);
-    }
-.inicio-mapa {
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  width: 100%;
-}
-
-.mapa-svg {
-  display: block;
-  width: 150%;
-  max-width: none;
-  height: 70vh;
-  border: 0;
-  background: transparent;
-}
-
-    .noticias-lista {
-      display: grid;
-      gap: 20px;
-      margin-top: 12px;
-    }
-    .noticia-item {
-      border: 1px solid #e4e4e4;
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      background: #fafafa;
-      transition: box-shadow .2s ease, transform .2s ease;
-    }
-    .noticia-item:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-    .noticia-data {
-      font-size: .85rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      margin: 0 0 6px;
-    }
-    .noticia-titulo {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-    }
-    .noticia-resumo {
-      margin: 0;
-      color: #444;
-    }
-    
-  @media (max-width: 820px) {
-    .header-inner, .grid-2 { grid-template-columns: 1fr; display:block; }
-    .header-side { align-items:flex-start; margin-top:18px; }
-    .site-logo { max-width: 220px; width: 100%; }
-    .container, footer { padding: 0 18px; }
-    .lang-bar-inner { padding: 12px 18px; }
-    .header-inner { padding: 24px 18px; }
-    .nav-wrap { padding: 0 18px; }
-    nav a { flex: 1 1 auto; text-align:center; }
-    .inicio-section { padding: 24px 20px; }
-    .inicio-logos { flex-direction: column; align-items: flex-start; gap: 24px; }
-    .logo-item { flex-direction: row; align-items: center; }
-    .logo-item img { max-height: 56px; }
-    .mapa-svg {
-  width: 100%;
-  max-width: 100%;
-  height: 60vh;
-  min-height: 320px;
-}
-  }
-  </style>
 </head>
+
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div class="header-side">
-        <a href="#" class="logo-link" data-target="inicio" aria-label="Início">
-          <img class="site-logo" src="pictures/Logo_1.png" alt="Logo INCT-DAESF" />
-        </a>
-      </div>
-      <div class="header-main">
-        <h1 class="hero-title">INCT-DAESF</h1>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento de Aplicações da Energia Solar Fotovoltaica.</p>
-      </div>
-    </div>
-  </header>
+<main class="wrap">
 
-  <div class="lang-bar">
-    <div class="lang-bar-inner">
-      <div class="lang-switch" aria-label="Language switcher">
-        <button class="lang-btn active" data-lang="pt" type="button">PT</button>
-        <button class="lang-btn" data-lang="en" type="button">EN</button>
-      </div>
-    </div>
+<!-- SEÇÃO: HISTÓRIA DA HELIODINÂMICA -->
+<section class="panel" id="historia">
+  <div style="text-align:center; margin-bottom:24px;">
+  <img src="assets/img/logo_heliodinamica.png" 
+         alt="Logotipo da Heliodinâmica" 
+         style="max-width:500px; width:100%; height:auto; border-radius:8px; box-shadow:0 6px 16px rgba(0,0,0,0.2);">
   </div>
+<h2>Site dedicado à história da Heliodinâmica</h2>
 
-  <div class="nav-wrap">
-    <nav>
-      <a href="#" data-target="inicio" class="nav-link active" data-i18n="navInicio">Início</a>
-      <a href="#" data-target="sobre" class="nav-link" data-i18n="navSobre">Sobre</a>
-      <a href="#" data-target="grupos" class="nav-link" data-i18n="navGrupos">Grupos Associados</a>
-      <a href="#" data-target="pesquisa" class="nav-link" data-i18n="navPesquisa">Pesquisa</a>
-      <a href="#" data-target="difusao" class="nav-link" data-i18n="navDifusao">Difusão e Eventos</a>
-      <a href="#" data-target="noticias" class="nav-link" data-i18n="navNoticias">Notícias</a>
-      <a href="#" data-target="oportunidades" class="nav-link" data-i18n="navOportunidades">Oportunidades</a>
-      <a href="#" data-target="instituicoes" class="nav-link" data-i18n="navInstituicoes">Instituições e Parceiros</a>
-    </nav>
-  </div>
+<p>
+A <strong>Heliodinâmica S.A.</strong> foi a <strong>primeira empresa brasileira dedicada à fabricação de módulos e células solares fotovoltaicas</strong>,
+fundada no início da década de 1980 pelo engenheiro e físico <strong>Bruno Topel</strong>, imigrante polonês naturalizado brasileiro.
+Visionário e industrial experiente, Topel acreditava que o Brasil poderia desenvolver tecnologia própria e tornar-se autossuficiente na geração solar,
+em um período em que a energia fotovoltaica ainda era experimental e restrita a poucos países.
+</p>
 
-  <main class="container">
+<p>
+A Heliodinâmica foi pioneira em implementar um modelo <strong>verticalizado de produção</strong>, abrangendo todas as etapas —
+desde o corte e dopagem de <em>lingotes de silício</em>, passando pela fabricação de <em>células solares</em>,
+até a montagem final dos <em>módulos fotovoltaicos</em> encapsulados em vidro e alumínio.
+Essa estrutura industrial, única no hemisfério sul à época, colocou o Brasil entre os poucos países do mundo
+capazes de produzir <strong>células fotovoltaicas completas</strong> nos anos 1980.
+</p>
 
-    <section id="inicio" class="card content-section active inicio-section">
-      <p class="inicio-texto" data-i18n="inicioLeadCustom">
-        O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.
-      </p>
+<p>
+Nos anos de maior atividade, a Heliodinâmica chegou a representar cerca de <strong>5% da produção mundial de módulos solares</strong>,
+fornecendo sistemas para empresas como <strong>Petrobras</strong>, <strong>Embratel</strong>, <strong>Cemig</strong>, <strong>Vale</strong> e instituições de pesquisa.
+Seus painéis foram aplicados em telecomunicações, sinalização remota e projetos experimentais — incluindo o barco
+<em>Paraty</em> de <strong>Amyr Klink</strong> (1984), que realizou a travessia do Atlântico equipado com módulos produzidos pela empresa.
+</p>
 
-      <div class="inicio-logos">
-        <div class="logo-item">
-          <img src="pictures/lsf.png" alt="LSF IEE USP">
-          <p data-i18n="inicioCoord">
-            (Roberto Zilles)<br>Coordenação
-          </p>
-        </div>
-        <div class="logo-item">
-          <img src="pictures/ufsc.jpg" alt="Fotovoltaica UFSC">
-          <p data-i18n="inicioVice">
-            (Ricardo Rüther)<br>Vice-coordenação
-          </p>
-        </div>
-      </div>
+<p>
+Apesar do sucesso técnico e da qualidade reconhecida internacionalmente, a ausência de políticas públicas e os altos custos de produção
+dificultaram a sustentação econômica da indústria solar no Brasil nas décadas seguintes.
+Mesmo assim, a Heliodinâmica continuou operando por anos em escala reduzida, prestando consultorias e pequenas produções sob demanda.
+</p>
 
-      <div class="inicio-mapa">
-  <object
-    type="image/svg+xml"
-    data="pictures/mapa_hyperlinks.svg"
-    class="mapa-svg"
-    aria-label="Mapa do Brasil com as instituições associadas do INCT-DAESF">
-    <img
-      src="pictures/mapa_hyperlinks.svg"
-      alt="Mapa do Brasil com as instituições associadas do INCT-DAESF" />
-  </object>
+<p>
+Por volta de <strong>2010</strong>, as atividades industriais foram encerradas, e a empresa passou a preservar seu acervo técnico e histórico.
+Bruno Topel seguiu ativo como consultor e referência na área de energia solar, contribuindo com universidades, pesquisadores e novas iniciativas do setor.
+</p>
+
+<p>
+Hoje, a Heliodinâmica é lembrada como o <strong>marco fundador da indústria fotovoltaica brasileira</strong>,
+símbolo de <strong>inovação, independência tecnológica e visão de futuro</strong>.
+Seu legado permanece inspirando novas gerações de engenheiros e empreendedores que continuam a expandir o uso da energia solar no país.
+</p>
+
+<blockquote style="margin-top:20px; font-style:italic; border-left:4px solid var(--brand); padding-left:12px;">
+“A Heliodinâmica foi o embrião da indústria fotovoltaica brasileira — um projeto ousado que uniu ciência, engenharia e idealismo para transformar luz em energia.”
+</blockquote>
+</section>
+
+<!-- SEÇÃO: CRONOLOGIA DA HELIODINÂMICA -->
+<section class="panel" id="cronologia">
+<h2>Cronologia da Heliodinâmica</h2>
+<p>
+A trajetória da <strong>Heliodinâmica S.A.</strong> reflete o pioneirismo brasileiro na tecnologia fotovoltaica. 
+Fundada por <strong>Bruno Topel</strong> no início da década de 1980, a empresa foi responsável pela primeira produção nacional
+de células e módulos solares, marcando a história da energia solar no país.
+</p>
+
+<div class="timeline">
+<div class="event">
+<h3>1970 – 1979 · As origens da ideia</h3>
+<p>Bruno Topel consolida carreira na indústria de motores elétricos e toma contato com as primeiras aplicações de energia solar durante viagens técnicas ao exterior. Surge a visão de criar tecnologia fotovoltaica no Brasil.</p>
 </div>
 
-      <div class="inicio-logos">
-      <div class="logo-item">
-        <img src="pictures/cnpq.jpg" alt="cnpq">
-      </div>
-      <div class="logo-item">
-        <img src="pictures/capes.jpg" alt="capes">
-      </div>
-      <div class="logo-item">
-        <img src="pictures/fapesp.jpg" alt="fapesp">
-      </div>
-    </div>
+<div class="event">
+<h3>1980 – 1981 · Fundação e estruturação</h3>
+<p>Criação da <strong>Heliodinâmica S.A.</strong> e instalação da primeira linha industrial brasileira para fabricar <em>células</em> e <em>módulos fotovoltaicos</em>. O projeto foi integralmente financiado com capital privado.</p>
+</div>
 
+<div class="event">
+<h3>1982 – 1985 · Pico de inovação e produção</h3>
+<p>Início da produção seriada de módulos de 33 a 50 W. Fornecimentos para Petrobras, Embratel, Cemig, Vale e universidades. 
+A empresa chega a representar <strong>~5% da produção mundial</strong> de módulos solares. Seus painéis equipam o barco <em>Paraty</em> de Amyr Klink.</p>
+</div>
 
-    </section>
+<div class="event">
+<h3>1986 – 1999 · Desafios e resistência</h3>
+<p>Com a queda do preço do petróleo e a falta de incentivos, a Heliodinâmica reduz escala e atua em nichos como telecomunicações e sinalização remota. Mantém o domínio técnico e forma profissionais na área fotovoltaica.</p>
+</div>
 
-    <section id="sobre" class="card content-section">
-      <h2 data-i18n="sobreTitle">Sobre</h2>
-      <p data-i18n="sobreP1">O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ensino e pesquisa atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.</p>
-      <p data-i18n="sobreP2">Seu objetivo é desenvolver pesquisa de alto nível, promover a inovação e formar recursos humanos qualificados, contribuindo para a transição do Brasil para uma oferta energética sustentável. O Instituto atua em articulação com os setores empresarial, governamental e não governamental, promovendo a transferência de conhecimento, o desenvolvimento de soluções tecnológicas e a formulação de políticas públicas.</p>
-      <p data-i18n="sobreP3">Com forte cooperação internacional e interação com o setor produtivo, o INCT-DAESF busca ampliar o impacto científico, tecnológico, econômico e socioambiental da energia solar fotovoltaica, contribuindo para o avanço dessa tecnologia estratégica no país. Suas atividades incluem desde a modelagem e a integração de sistemas até aplicações inovadoras, como armazenamento de energia, hidrogênio verde, mobilidade elétrica, sistemas híbridos e sistemas agrivoltaicos.</p>
-    </section>
+<div class="event">
+<h3>2000 – 2009 · Reinvenção e consultoria</h3>
+<p>Topel participa de iniciativas e eventos sobre energia solar, defendendo a retomada da indústria nacional. A empresa realiza pequenas produções sob encomenda e presta consultoria técnica.</p>
+</div>
 
-    <section id="grupos" class="card content-section">
-      <h2 data-i18n="gruposTitle">Grupos Associados</h2>
-      <p data-i18n="gruposP1">O INCT-DAESF tem sua sede na Universidade de São Paulo (USP), por meio do Instituto de Energia e Ambiente, no Laboratório de Sistemas Fotovoltaicos (LSF-IEE/USP), que dispõe de infraestrutura laboratorial e suporte administrativo para o desenvolvimento das atividades do Instituto. A vice-sede está vinculada à Universidade Federal de Santa Catarina (UFSC), por meio do grupo Fotovoltaica/UFSC, referência nacional na área.</p>
-      <p data-i18n="gruposP2">A <strong>coordenação</strong> do INCT-DAESF é exercida pelo <strong>Prof. Dr. Roberto Zilles (LSF-IEE/USP)</strong>, e a vice-coordenação pelo <strong>Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)</strong>, ambos pesquisadores PQ-1A do CNPq, com ampla experiência na área e atuação destacada no desenvolvimento da energia solar fotovoltaica no Brasil.
-      <p data-i18n="gruposP3">O INCT-DAESF é composto por grupos de pesquisa associados distribuídos em diferentes instituições brasileiras, com seus respectivos líderes:</p>
-      <table>
-        <thead><tr><th data-i18n="tableGrupo">Grupo / Instituição</th><th data-i18n="tableLider">Líder</th><th data-i18n="tableLattes">Currículo</th></tr></thead>
-        <tbody>
-          <tr><td>LSF-IEE/USP</td><td>Prof. Dr. Roberto Zilles</td><td><a href="https://lattes.cnpq.br/0339375192824635" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>FOTOVOLTAICA/UFSC</td><td>Prof. Dr. Ricardo Rüther</td><td><a href="https://lattes.cnpq.br/5669240020541721" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>NTEEL/UFSC</td><td>Prof. Dr. Giuliano Arns Rampinelli</td><td><a href="https://lattes.cnpq.br/8730750961111658" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>LABSOL/UFRGS</td><td>Prof. Dr. Fabiano Perin Gasparin</td><td><a href="https://lattes.cnpq.br/5631639380223151" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>GEDAE/UFPA</td><td>Prof. Dr. Wilson Negrão Macêdo</td><td><a href="https://lattes.cnpq.br/3386249951714088" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>IFSC (GENERAL)</td><td>Prof. Dr. Samuel Luna de Abreu</td><td><a href="https://lattes.cnpq.br/0864784421981857" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>LAF/UFF</td><td>Prof. Dr. Gilberto Figueiredo Pinto Filho</td><td><a href="https://lattes.cnpq.br/4642027221849124" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>LER/UNIFAP</td><td>Prof. Dr. Alaan Ubaiara Brito</td><td><a href="https://lattes.cnpq.br/9194391143997588" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>ISI-ER/SENAI-RN</td><td>Dra. Samira de Azevedo Santos Emiliavaca</td><td><a href="https://lattes.cnpq.br/8334809149422137" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>LAERO/LEA/UFC</td><td>Prof. Dr. Paulo Marques Carvalho</td><td><a href="https://lattes.cnpq.br/0935409654079900" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>UFSCar (Campus Lagoa do Sino)</td><td>Prof. Dr. Rafael Tiezzi</td><td><a href="https://lattes.cnpq.br/7979063304544915" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-          <tr><td>UFBA</td><td>Prof. Dr. Osvaldo Soliano Pereira</td><td><a href="https://lattes.cnpq.br/0059972528530672" data-i18n="cv_lattes">CV Lattes</a></td></tr>
-        </tbody>
-      </table>
-      <br><br>
-      <p data-i18n="gruposP4">Esses grupos compõem uma rede colaborativa que integra competências complementares e infraestrutura avançada, permitindo o desenvolvimento de projetos cooperativos em escala nacional e internacional.</p>
-    </section>
+<div class="event">
+<h3>2010 – Presente · Legado e memória</h3>
+<p>Encerramento das atividades industriais e preservação do acervo técnico. O nome <strong>Heliodinâmica</strong> permanece como símbolo do pioneirismo brasileiro em energia solar e inspiração para novas gerações.</p>
+</div>
+</div>
 
-    <section id="pesquisa" class="card content-section">
-      <h2 data-i18n="pesquisaTitle">Pesquisa</h2>
-      <p data-i18n="pesquisaP1">O INCT-DAESF estrutura suas atividades em um conjunto de pesquisas interdependentes, organizadas de forma colaborativa entre diferentes instituições de ensino e pesquisa. Cada meta é coordenada por um laboratório associado e é executada com a participação integrada dos demais grupos da rede.</p>
-      <table>
-        <thead>
-          <tr><th data-i18n="eixo">Descrição</th><th data-i18n="descricao">Grupos/Laboratórios responsáveis</th></tr>
-        </thead>
-        <tbody>
-          <tr><td data-i18n="e1">Modelagem e qualificação de sistemas FV</td><td data-i18n="d1">LABSOL–UFRGS (Coordenação)<br>FOTOVOLTAICA–UFSC<br>LSF–IEE/USP</td></tr>
-          <tr><td data-i18n="e2">Avaliação termoenergética de edificações</td><td data-i18n="d2">LAF–UFF (Coordenação)<br>UFSM</td></tr>
-          <tr><td data-i18n="e3">Armazenamento de energia</td><td data-i18n="d3">FOTOVOLTAICA–UFSC (Coordenação)<br>LSF–IEE/USP<br>GEDAE–UFPA<br>GENERAL–IFSC</td></tr>
-          <tr><td data-i18n="e4">Hidrogênio verde</td><td data-i18n="d4">FOTOVOLTAICA – UFSC (Coordenação)</td></tr>
-          <tr><td data-i18n="e5">Previsão do recurso solar e calibração</td><td data-i18n="d5">UNIFESP (Coordenação)<br>SENAI ISI-ER/LES-RN<br>LSF–IEE/USP</td></tr>
-          <tr><td data-i18n="e6">Integração à rede e minirredes</td><td data-i18n="d6">NTEEL–UFSC (Coordenação)<br>GEDAE–UFPA<br>LER–UNIFAP</td></tr>
-          <tr><td data-i18n="e7">Sistemas híbridos</td><td data-i18n="d7">LAERO/LEA–UFC (Coordenação)</td></tr>
-          <tr><td data-i18n="e8">Sistemas agrovoltaicos</td><td data-i18n="d8">FOTOVOLTAICA – UFSC (Coordenação)<br>LSF – IEE/USP</td></tr>
-          <tr><td data-i18n="e9">Ensaios experimentais e conformidade</td><td data-i18n="d9">LSF–IEE/USP (Coordenação)<br>LABSOL–UFRGS<br>FOTOVOLTAICA–UFSC<br>GEDAE–UFPA</td></tr>
-          <tr><td data-i18n="e10">Comunidades isoladas</td><td data-i18n="d10">UFPA (Coordenação)<br>UNIFAP</td></tr>
-          <tr><td data-i18n="e11">Estudos econômicos e regulatórios</td><td data-i18n="d11">UFBA (Coordenação)<br>UFSCar</td></tr>
-          <tr><td data-i18n="e12">Formação de recursos humanos e difusão</td><td data-i18n="d12">Meta transversal que envolve todos os grupos participantes.</td></tr>
-        </tbody>
-      </table>
-      <br><br>
-      <p data-i18n="pesquisaP2">No âmbito técnico-científico, destacam-se as metas relacionadas à modelagem e à qualificação de sistemas fotovoltaicos, conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP, bem como as voltadas à avaliação termoenergética de edificações, com participação do LAF – UFF e UFSM. A integração da geração fotovoltaica com sistemas de armazenamento de energia é desenvolvida principalmente pelos grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC, enquanto a produção de hidrogênio verde concentra-se no grupo FOTOVOLTAICA – UFSC.</p>
-      <p data-i18n="pesquisaP3">As atividades de previsão do recurso solar e calibração de piranômetros são coordenadas por instituições como UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP, sendo fundamentais para o planejamento e a operação dos sistemas energéticos. Paralelamente, estudos sobre a integração da geração fotovoltaica à rede elétrica e o desenvolvimento de minirredes são conduzidos por grupos da NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP, abordando aspectos técnicos e operacionais da inserção da energia solar no sistema elétrico.</p>
-      <p data-i18n="pesquisaP4">Outras metas relevantes incluem o desenvolvimento de sistemas híbridos (solar-eólico), coordenado pelo grupo LAERO/LEA – UFC; a implementação de sistemas agrivoltaicos, liderada pelos grupos FOTOVOLTAICA – UFSC e LSF – IEE/USP; e a realização de ensaios experimentais e análises de conformidade, com destaque para os laboratórios da LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA. Adicionalmente, o projeto contempla aplicações voltadas à eletrificação de comunidades isoladas, sob responsabilidade de grupos da UFPA e da UNIFAP, bem como estudos econômicos e regulatórios conduzidos pela UFBA e pela UFSCar.</p>
-      <p data-i18n="pesquisaP5">Por fim, destaca-se a meta transversal de formação de recursos humanos e de difusão científica, que envolve todos os grupos participantes e é coordenada pelas instituições líderes do projeto. Essa estrutura integrada e multidisciplinar permite ao INCT-DAESF atuar de forma abrangente em toda a cadeia de valor da energia solar fotovoltaica, consolidando-se como uma iniciativa estratégica para o desenvolvimento tecnológico e sustentável do setor energético brasileiro.</p>
+<blockquote style="margin-top:20px; font-style:italic; border-left:4px solid var(--brand); padding-left:12px;">
+“A Heliodinâmica foi mais que uma fábrica — foi a primeira experiência industrial completa de tecnologia fotovoltaica no Brasil, antecipando em décadas a expansão que o país vive hoje.”
+</blockquote>
+</section>
 
-    </section>
+<section class="panel" id="bruno-topel">
+<div class="bio-container">
+<div class="bio-image">
+<img src="assets/img/Bruno-Topel.jpg" alt="Bruno Topel" />
+</div>
+<div class="bio-text">
+<h2>Bruno Topel: visão, indústria e pioneirismo</h2>
+<p>
+Após uma carreira bem-sucedida na indústria de motores elétricos e automação, 
+<strong>Bruno Topel</strong> conheceu a tecnologia solar no início da década de 1980 
+e decidiu investir na criação de uma <strong>manufatura fotovoltaica completa no Brasil</strong>.
+Seu objetivo era ambicioso: dominar todas as etapas da cadeia produtiva — 
+do silício à montagem dos módulos — tornando o país autossuficiente em energia solar.
+</p>
+<p>
+Sua visão empreendedora e capacidade técnica deram origem à <strong>Heliodinâmica S.A.</strong>, 
+a primeira empresa brasileira a fabricar células solares em escala industrial. 
+O projeto, financiado com recursos próprios, combinou inovação, rigor científico e 
+compromisso com a independência tecnológica do Brasil.
+</p>
+</div>
+</div>
+</section>
 
-    <section id="difusao" class="card content-section">
-      <h2 data-i18n="difusaoTitle">Difusão e Eventos</h2>
-      <p data-i18n="difusaoP1">A estratégia de difusão do INCT-DAESF baseia-se na ampla disseminação do conhecimento científico, tecnológico e aplicado gerado pelo Instituto, visando alcançar a comunidade acadêmica, o setor produtivo e a sociedade em geral.</p>
-      <p data-i18n="difusaoP2">As ações incluem a publicação de resultados em periódicos científicos de alto impacto e em revistas técnicas, bem como a participação em conferências nacionais e internacionais. Complementarmente, o INCT promove seminários, eventos e transmissões online, ampliando o acesso ao conhecimento e incentivando a formação de novos pesquisadores.</p>
-      <p data-i18n="difusaoP3">A interação com o setor produtivo é fortalecida por meio de parcerias com associações e empresas do setor energético, o que favorece a transferência de tecnologia e a aplicação prática dos resultados. Além disso, o Instituto investe na divulgação científica na mídia digital e em canais abertos, contribuindo para a popularização da ciência e para o engajamento da sociedade na transição energética.</p>
-    </section>
+<!-- ESTILO DA SEÇÃO -->
+<style>
+#bruno-topel .bio-container {
+display: flex;
+align-items: center;
+gap: 24px;
+flex-wrap: wrap; /* responsivo */
+}
 
-    <section id="noticias" class="card content-section">
-      <h2 data-i18n="noticiasTitle">Notícias</h2>
-      <p data-i18n="noticiasIntro">Acompanhe as últimas novidades, conquistas e atividades do INCT-DAESF e de seus grupos associados.</p>
-      <div class="noticias-lista">
-        <article class="noticia-item">
-          <p class="noticia-data" data-i18n="noticia1Data">10 de abril de 2026</p>
-          <h3 class="noticia-titulo" data-i18n="noticia1Titulo">INCT-DAESF realiza primeiro workshop nacional sobre sistemas agrovoltaicos</h3>
-          <p class="noticia-resumo" data-i18n="noticia1Resumo">O evento reuniu pesquisadores das 14 instituições da rede para discutir os avanços na integração entre geração fotovoltaica e produção agrícola.</p>
-        </article>
-        <article class="noticia-item">
-          <p class="noticia-data" data-i18n="noticia2Data">22 de março de 2026</p>
-          <h3 class="noticia-titulo" data-i18n="noticia2Titulo">Pesquisa sobre hidrogênio verde da UFSC recebe destaque internacional</h3>
-          <p class="noticia-resumo" data-i18n="noticia2Resumo">O grupo Fotovoltaica/UFSC publicou resultados promissores sobre a produção de hidrogênio verde a partir de energia solar em periódico de alto impacto.</p>
-        </article>
-        <article class="noticia-item">
-          <p class="noticia-data" data-i18n="noticia3Data">5 de março de 2026</p>
-          <h3 class="noticia-titulo" data-i18n="noticia3Titulo">Laboratório do LSF-IEE/USP inicia novos ensaios de conformidade de módulos FV</h3>
-          <p class="noticia-resumo" data-i18n="noticia3Resumo">A infraestrutura da sede do Instituto passou por modernização e amplia a capacidade de qualificação de equipamentos fotovoltaicos no país.</p>
-        </article>
-        <article class="noticia-item">
-          <p class="noticia-data" data-i18n="noticia4Data">18 de fevereiro de 2026</p>
-          <h3 class="noticia-titulo" data-i18n="noticia4Titulo">Abertas inscrições para bolsas de Iniciação Científica na rede INCT-DAESF</h3>
-          <p class="noticia-resumo" data-i18n="noticia4Resumo">Estudantes de graduação podem se candidatar a vagas em projetos de pesquisa distribuídos entre os grupos associados do Instituto.</p>
-        </article>
-        <article class="noticia-item">
-          <p class="noticia-data" data-i18n="noticia5Data">30 de janeiro de 2026</p>
-          <h3 class="noticia-titulo" data-i18n="noticia5Titulo">INCT-DAESF firma nova parceria internacional com o Fraunhofer ISE</h3>
-          <p class="noticia-resumo" data-i18n="noticia5Resumo">O acordo de cooperação prevê intercâmbio de pesquisadores e desenvolvimento conjunto de projetos em armazenamento de energia.</p>
-        </article>
-      </div>
-    </section>
+#bruno-topel .bio-image {
+flex: 1 1 280px;
+text-align: center;
+}
 
-    <section id="oportunidades" class="card content-section">
-      <h2 data-i18n="oportunidadesTitle">Oportunidades</h2>
-      <p data-i18n="oportunidadesP1">O INCT-DAESF oferece diversas oportunidades de participação e atuação para estudantes de graduação, pós-graduação e profissionais interessados no desenvolvimento científico e tecnológico na área de energia solar fotovoltaica. Por meio de sua rede de instituições parceiras, o Instituto promove a formação de recursos humanos altamente qualificados em diferentes níveis.</p>
-      <p data-i18n="oportunidadesP2">Estudantes de graduação podem ingressar em projetos de pesquisa por meio de bolsas de Iniciação Científica (IC), participando ativamente de atividades experimentais, de modelagem, de desenvolvimento de tecnologias e de estudos aplicados. Para aqueles com perfil voltado à inovação e interação com o setor produtivo, também há oportunidades por meio de bolsas de Desenvolvimento Tecnológico e Industrial (DTI), com foco em soluções tecnológicas e aplicações práticas.</p>
-      <p data-i18n="oportunidadesP3">No âmbito da pós-graduação, o INCT-DAESF está associado a diversos programas de excelência que oferecem oportunidades de mestrado, doutorado e pós-doutorado, permitindo o aprofundamento acadêmico em temas estratégicos, como sistemas fotovoltaicos, armazenamento de energia, integração à rede elétrica, hidrogênio verde, mobilidade elétrica e aplicações em ambientes construídos e em áreas isoladas.</p>
-      <p data-i18n="oportunidadesP4">Além disso, o Instituto incentiva a mobilidade acadêmica, a participação em projetos cooperativos e a interação com pesquisadores nacionais e internacionais, proporcionando um ambiente multidisciplinar e inovador. </p>
-    </section>
+#bruno-topel .bio-image img {
+width: 100%;
+max-width: 320px;
+border-radius: 12px;
+box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
 
-    <section id="instituicoes" class="card content-section">
-      <h2 data-i18n="instituicoesTitle">Instituições e Parceiros</h2>
-      <p data-i18n="instituicoesP1">O INCT-DAESF integra uma ampla rede de parcerias nacionais e internacionais, envolvendo instituições de pesquisa e empresas estratégicas, com o objetivo de fortalecer a pesquisa, promover a inovação e ampliar o impacto das aplicações da energia solar fotovoltaica no Brasil. Essas parcerias viabilizam o desenvolvimento de projetos cooperativos, o intercâmbio de pesquisadores e a transferência de conhecimento entre a academia, o setor produtivo e instituições governamentais e não governamentais.</p>
-      <p data-i18n="instituicoesP2">No âmbito internacional, o INCT-DAESF conta com a colaboração de diversas instituições de ensino e pesquisa, dentre as quais destacam-se:</p>
-      <br><br>
-      <div class="logos-grid">
-        <div class="logo-parceiro"><img src="pictures/parceiros/upm.png" alt="Instituto de Energía Solar – UPM" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/jaen.png" alt="Universidad de Jaén" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/bristol.png" alt="University of Bristol" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/fraunhofer.png" alt="Fraunhofer ISE / Fraunhofer Chile" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/seris.png" alt="Solar Energy Research Institute of Singapore" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/anu.png" alt="Australian National University" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/thi.png" alt="Technische Universität Ingolstadt" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/th-koeln.png" alt="Technische Hochschule Köln" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/tokyo.png" alt="The University of Tokyo" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/sandia.png" alt="Sandia National Laboratories" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/udelar.png" alt="Universidad de la República" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/puc-chile.png" alt="Pontificia Universidad Católica de Chile" /></div>
-      </div>
-      <br><br>
-      <p data-i18n="instituicoesP3">No setor empresarial, o Instituto mantém parceria com empresas atuantes nas áreas de geração fotovoltaica, eletrônica de potência, automação e armazenamento de energia, incluindo:</p>
-      <br><br>
-      <div class="logos-grid">
-        <div class="logo-parceiro"><img src="pictures/parceiros/byd.png" alt="BYD Energy do Brasil" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/hercilio-randon.png" alt="Instituto Hercílio Randon" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/phb.png" alt="PHB Eletrônica Ltda." /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/ja-solar.png" alt="JA Solar Brasil" /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/huawei.png" alt="Huawei do Brasil Telecomunicações Ltda." /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/weg.png" alt="WEG Turbinas e Solar Ltda." /></div>
-        <div class="logo-parceiro"><img src="pictures/parceiros/ctg.png" alt="China Three Gorges Brasil" /></div>
-      </div>
-      <br><br>
-      <p data-i18n="instituicoesP4">Essas parcerias são fundamentais para a consolidação de um ecossistema de inovação, permitindo ao INCT-DAESF atuar de forma integrada no desenvolvimento de soluções tecnológicas, na formação de recursos humanos qualificados e no avanço da energia solar fotovoltaica como vetor estratégico para a transição energética sustentável no país.</p>
-    </section>
+#bruno-topel .bio-text {
+flex: 2 1 420px;
+}
 
-  </main>
+#bruno-topel .bio-text h2 {
+margin-top: 0;
+color: var(--accent);
+}
 
-<footer data-i18n="footerText" style="text-align: center;">
-  © 2026 INCT-DAESF. Todos os direitos reservados.
+@media (max-width: 768px) {
+#bruno-topel .bio-container {
+flex-direction: column;
+text-align: center;
+}
+#bruno-topel .bio-text {
+text-align: left;
+}
+}
+</style>
+
+<section class="panel">
+<h2>Marcos da Heliodinâmica</h2>
+<ul class="timeline">
+<li><span class="caps">1980–1981</span> — Criação da Heliodinâmica e início do projeto de verticalização.</li>
+<li><span class="caps">Década de 1980</span> — Pico de produção: ~5% da fabricação mundial de módulos.</li>
+<li><span class="caps">Anos 2000</span> — Operações de nicho; mercado restrito.</li>
+<li><span class="caps">~2010</span> — Empresa entra em hibernação.</li>
+</ul>
+</section>
+
+<section class="panel">
+<h2>Vídeos Históricos</h2>
+<p>Assista a dois registros históricos relacionados à Heliodinâmica e ao legado de Bruno Topel:</p>
+
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/rynhsq5_8J4" allowfullscreen title="Vídeo 1 - Heliodinâmica"></iframe>
+</div>
+
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/EhnjNgyeK-o" allowfullscreen title="Vídeo 2 - Bruno Topel e energia solar"></iframe>
+</div>
+
+<div>
+  <p>
+    <strong>Vídeo 3:</strong> 
+    <a href="https://www.youtube.com/watch?v=GBIQwUUK4LU&t=14m40s" target="_blank">
+      Amyr Klink - Programa Globo Ciência (Minuto 14:40 para a explicação dos módulos utilizados pelo navegador) - Amyr Klink Oficial
+    </a>
+  </p>
+</div>
+
+<div>
+  <p>
+    <strong>Vídeo 4:</strong> 
+    <a href="https://www.youtube.com/watch?v=9qyTdq1F5Xc" target="_blank">
+      INCRÍVEL: Placa Solar com 40 Anos de IDADE 100% Brasileira - Heliodinâmica 45Wp - Canal do Sr. Eduardo Aquino
+    </a>
+  </p>
+</div>
+
+</section>
+
+<!-- ✅ NOVA SEÇÃO COM LINKS PARA DOWNLOAD -->
+<section class="panel">
+<h2>Materiais para download</h2>
+<p>Clique para visualizar ou baixar os originais coletados nos sites eletrônicos:</p>
+<ol class="download-list">
+<li><a href="assets/docs/A eletricidade do Sol _ Revista Pesquisa Fapesp.pdf" target="_blank" download>A eletricidade do Sol — Revista Pesquisa FAPESP</a></li>
+<li><a href="assets/docs/a1369.pdf" target="_blank" download>O Estado de S. Paulo — Perfil de Bruno Topel</a></li>
+<li><a href="assets/docs/Células solares - fontes alternativas de energia (MA016).pdf" target="_blank" download>Células solares — Newton C. Braga</a></li>
+<li><a href="assets/docs/Conheça sobre a História da Energia Solar - ENERGÊS.pdf" target="_blank" download>História da Energia Solar — ENERGÊS</a></li>
+<li><a href="assets/docs/Criou primeira empresa de energia solar do Brasil.pdf" target="_blank" download>Criou primeira empresa de energia solar do Brasil</a></li>
+<li><a href="assets/docs/Portal Pick-upau - Mundo.pdf" target="_blank" download>Portal Pick-upau — Mundo Solar</a></li>
+</ol>
+</section>
+
+<!-- SEÇÃO: SOBRE O AUTOR -->
+<section class="panel" id="autor">
+<div class="autor-container">
+<div class="autor-text">
+<h2>Sobre o autor da página</h2>
+
+<p>
+<strong>Rodrigo P. Maruyama</strong> é pesquisador no 
+<strong>Laboratório de Sistemas Fotovoltaicos (LSF)</strong> do 
+<strong>Instituto de Energia e Ambiente da Universidade de São Paulo (IEE-USP)</strong>, Brasil.
+</p>
+
+<p>
+Atua em pesquisa e desenvolvimento de sistemas fotovoltaicos, com foco em 
+desempenho, confiabilidade, conformidade técnica e avaliação de campo de módulos e geradores solares.
+Este site foi criado para preservar a memória técnica e histórica da 
+<strong>Heliodinâmica</strong>, primeira empresa brasileira a fabricar células e módulos fotovoltaicos.
+</p>
+
+<h3>Dissertação de Mestrado</h3>
+<p>
+<em>Perícias em Instalações Elétricas de Sistemas Fotovoltaicos: Avaliação de Conformidade e Desempenho</em><br>
+Escola Politécnica da Universidade de São Paulo (POLI-USP), 2025.<br>
+<a href="https://www.teses.usp.br/teses/disponiveis/3/3143/tde-02062025-105705/pt-br.php" 
+target="_blank" rel="noopener" class="link-tese">
+🔗 Acessar dissertação no Banco de Teses da USP
+</a>
+</p>
+</div>
+</div>
+</section>
+
+<footer class="wrap" style="text-align:center; color:#0f172a;">
+© <span id="y"></span> heliodinamica.com.br — Conteúdo histórico para fins de memória técnica e institucional.
 </footer>
 
-  <script>
-    const translations = {
-      pt: {
-        heroSubtitle: 'Instituto Nacional de Ciência e Tecnologia para o Desenvolvimento de Aplicações da Energia Solar Fotovoltaica.',
-        navInicio: 'Início',
-        navSobre: 'Sobre',
-        navGrupos: 'Grupos Associados',
-        navPesquisa: 'Pesquisa',
-        navDifusao: 'Difusão e Eventos',
-        navNoticias: 'Notícias',
-        navOportunidades: 'Oportunidades',
-        navInstituicoes: 'Instituições e Parceiros',
+</main>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
-        inicioLeadCustom: 'O INCT de Desenvolvimento de Aplicações da Energia Solar Fotovoltaica é uma rede de pesquisa que reúne 14 instituições de pesquisa do Brasil. Está focado na inovação tecnológica de aplicações da energia solar fotovoltaica.',
-        inicioCoord: '(Roberto Zilles)<br>Coordenação',
-        inicioVice: '(Ricardo Rüther)<br>Vice-coordenação',
+<!-- POPUP DE DISCLAIMER -->
+<div id="disclaimer-overlay">
+  <div id="disclaimer-popup">
+<h3>Aviso Importante</h3>
 
-        sobreTitle: 'Sobre',
-        sobreP1: 'O INCT de Desenvolvimento das Aplicações da Energia Solar Fotovoltaica (INCT-DAESF) é uma rede nacional voltada à pesquisa científica, tecnológica e à inovação em sistemas fotovoltaicos e suas aplicações no suprimento energético de sistemas isolados e interligados no Brasil. O Instituto reúne 14 instituições de ciência e tecnologia atuantes do país, formando uma rede colaborativa que concentra significativa expertise e infraestrutura na área. Mais do que um agrupamento de laboratórios, o INCT-DAESF consolida parcerias já estabelecidas, potencializando os resultados por meio de uma atuação integrada e interdisciplinar.',
-        sobreP2: 'Seu objetivo é desenvolver pesquisa de alto nível, promover a inovação e formar recursos humanos qualificados, contribuindo para a transição do Brasil para uma oferta energética sustentável. O Instituto atua em articulação com os setores empresarial e governamental, promovendo a transferência de conhecimento, o desenvolvimento de soluções tecnológicas e a formulação de políticas públicas.',
-        sobreP3: 'Com forte cooperação internacional e interação com o setor produtivo, o INCT-DAESF busca ampliar o impacto científico, tecnológico, econômico e socioambiental da energia solar fotovoltaica, contribuindo para o avanço dessa tecnologia estratégica no país. Suas atividades incluem desde a modelagem e a integração de sistemas até aplicações inovadoras, como armazenamento de energia, hidrogênio verde, mobilidade elétrica, sistemas híbridos e sistemas agrovoltaicos.',
+<p>
+As informações apresentadas neste site foram compiladas a partir de fontes públicas disponíveis na internet. 
+Todo conteúdo, incluindo textos, dados, gráficos e tabelas, é utilizado exclusivamente para fins informativos e educacionais.
+</p>
 
-        gruposTitle: 'Grupos Associados',
-        gruposP1: 'O INCT-DAESF tem sua sede na Universidade de São Paulo (USP), por meio do Instituto de Energia e Ambiente, no Laboratório de Sistemas Fotovoltaicos (LSF-IEE/USP), que dispõe de infraestrutura laboratorial e suporte administrativo para o desenvolvimento das atividades do Instituto. A vice-sede está vinculada à Universidade Federal de Santa Catarina (UFSC), por meio do grupo Fotovoltaica/UFSC, referência nacional na área.',
-        gruposP2: 'A <strong>coordenação</strong> do INCT-DAESF é exercida pelo <strong>Prof. Dr. Roberto Zilles (LSF-IEE/USP)</strong>, e a vice-coordenação pelo <strong>Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)</strong>, ambos pesquisadores PQ-1A do CNPq, com ampla experiência na área e atuação destacada no desenvolvimento da energia solar fotovoltaica no Brasil.',
-        gruposP3: 'O INCT-DAESF é composto por grupos de pesquisa associados distribuídos em diferentes instituições brasileiras, com seus respectivos líderes:',
-        tableGrupo: 'Grupo / Instituição',
-        tableLider: 'Líder',
-        tableLattes: 'Lattes',
-        cv_lattes: 'Currículo',
-        gruposP4: 'Esses grupos compõem uma rede colaborativa que integra competências complementares e infraestrutura avançada, permitindo o desenvolvimento de projetos cooperativos em escala nacional e internacional.',
-        pesquisaP2: 'No âmbito técnico-científico, destacam-se as metas relacionadas à modelagem e à qualificação de sistemas fotovoltaicos, conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP, bem como as voltadas à avaliação termoenergética de edificações, com participação do LAF – UFF e UFSM. A integração da geração fotovoltaica com sistemas de armazenamento de energia é desenvolvida principalmente pelos grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC, enquanto a produção de hidrogênio verde concentra-se no grupo FOTOVOLTAICA – UFSC.',
-        pesquisaP3: 'As atividades de previsão do recurso solar e calibração de piranômetros são coordenadas por instituições como UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP, sendo fundamentais para o planejamento e a operação dos sistemas energéticos. Paralelamente, estudos sobre a integração da geração fotovoltaica à rede elétrica e o desenvolvimento de minirredes são conduzidos por grupos da NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP, abordando aspectos técnicos e operacionais da inserção da energia solar no sistema elétrico.',
-        pesquisaP4: 'Outras metas relevantes incluem o desenvolvimento de sistemas híbridos (solar-eólico), coordenado pelo grupo LAERO/LEA – UFC; a implementação de sistemas agrovoltaicos, liderada pelos grupos da FOTOVOLTAICA – UFSC e LSF – IEE/USP; e a realização de ensaios experimentais e análises de conformidade, com destaque para os laboratórios da LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA. Adicionalmente, o projeto contempla aplicações voltadas à eletrificação de comunidades isoladas, sob responsabilidade de grupos da UFPA e da UNIFAP, bem como estudos econômicos e regulatórios conduzidos pela UFBA e pela UFSCar.',
-        pesquisaP5: 'Por fim, destaca-se a meta transversal de formação de recursos humanos e de difusão científica, que envolve todos os grupos participantes e é coordenada pelas instituições líderes do projeto. Essa estrutura integrada e multidisciplinar permite ao INCT-DAESF atuar de forma abrangente em toda a cadeia de valor da energia solar fotovoltaica, consolidando-se como uma iniciativa estratégica para o desenvolvimento tecnológico e sustentável do setor energético brasileiro.',
+<p>
+Este site não garante a exatidão, atualidade, integridade ou confiabilidade dos dados apresentados. 
+As fontes originais podem sofrer alterações, atualizações ou apresentar divergências. 
+Sempre consulte o material oficial nos links fornecidos para confirmação e uso profissional.
+</p>
 
-        pesquisaTitle: 'Pesquisa',
-        pesquisaP1: 'O INCT-DAESF estrutura suas atividades em um conjunto de pesquisas interdependentes, organizadas de forma colaborativa entre diferentes instituições de ensino e pesquisa. Cada meta é coordenada por um laboratório associado e é executada com a participação integrada dos demais grupos da rede.',
-        eixo: 'Descrição',
-        descricao: 'Grupos/Laboratórios responsáveis',
-        e1: 'Modelagem e qualificação de sistemas FV',
-        d1: 'LABSOL–UFRGS<br>FOTOVOLTAICA–UFSC<br>LSF–IEE/USP',
-        e2: 'Avaliação termoenergética de edificações',
-        d2: 'LAF–UFF<br>UFSM',
-        e3: 'Armazenamento de energia',
-        d3: 'FOTOVOLTAICA–UFSC<br>LSF–IEE/USP<br>GEDAE–UFPA<br>GENERAL–IFSC',
-        e4: 'Hidrogênio verde',
-        d4: 'FOTOVOLTAICA – UFSC',
-        e5: 'Previsão do recurso solar e calibração',
-        d5: 'UNIFESP<br>SENAI ISI-ER/LES-RN<br>LSF–IEE/USP',
-        e6: 'Integração à rede e minirredes',
-        d6: 'NTEEL–UFSC<br>GEDAE–UFPA<br>LER–UNIFAP',
-        e7: 'Sistemas híbridos',
-        d7: 'LAERO/LEA–UFC',
-        e8: 'Sistemas agrovoltaicos',
-        d8: 'FOTOVOLTAICA–UFSC<br>LSF–IEE/USP',
-        e9: 'Ensaios experimentais e conformidade',
-        d9: 'LSF–IEE/USP<br>LABSOL–UFRGS<br>FOTOVOLTAICA–UFSC<br>GEDAE–UFPA',
-        e10: 'Comunidades isoladas',
-        d10: 'UFPA<br>UNIFAP',
-        e11: 'Estudos econômicos e regulatórios',
-        d11: 'UFBA<br>UFSCar.',
-        e12: 'Formação de recursos humanos e difusão',
-        d12: 'Meta transversal que envolve todos os grupos participantes.',
+<p>
+O uso das informações aqui disponibilizadas é de única responsabilidade do usuário. 
+O autor do site não se responsabiliza por decisões, interpretações, análises ou ações tomadas com base no conteúdo apresentado.
+</p>
 
-        pesquisaP2: 'No âmbito técnico-científico, destacam-se as metas relacionadas à modelagem e à qualificação de sistemas fotovoltaicos, conduzidas por grupos como LABSOL – UFRGS, FOTOVOLTAICA – UFSC e LSF – IEE/USP, bem como as voltadas à avaliação termoenergética de edificações, com participação do LAF – UFF e UFSM. A integração da geração fotovoltaica com sistemas de armazenamento de energia é desenvolvida principalmente pelos grupos da FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA e GENERAL – IFSC, enquanto a produção de hidrogênio verde concentra-se no grupo FOTOVOLTAICA – UFSC.',
-        pesquisaP3: 'As atividades de previsão do recurso solar e calibração de piranômetros são coordenadas por instituições como UNIFESP, SENAI ISI-ER/LES-RN e LSF – IEE/USP, sendo fundamentais para o planejamento e a operação dos sistemas energéticos. Paralelamente, estudos sobre a integração da geração fotovoltaica à rede elétrica e o desenvolvimento de minirredes são conduzidos por grupos da NTEEL – UFSC, GEDAE – UFPA e LER – UNIFAP, abordando aspectos técnicos e operacionais da inserção da energia solar no sistema elétrico.',
-        pesquisaP4: 'Outras metas relevantes incluem o desenvolvimento de sistemas híbridos (solar-eólico), coordenado pelo grupo LAERO/LEA – UFC; a implementação de sistemas agrovoltaicos, liderada pelos grupos da FOTOVOLTAICA – UFSC e LSF – IEE/USP; e a realização de ensaios experimentais e análises de conformidade, com destaque para os laboratórios da LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC e GEDAE – UFPA. Adicionalmente, o projeto contempla aplicações voltadas à eletrificação de comunidades isoladas, sob responsabilidade de grupos da UFPA e da UNIFAP, bem como estudos econômicos e regulatórios conduzidos pela UFBA e pela UFSCar.',
-        pesquisaP5: 'Por fim, destaca-se a meta transversal de formação de recursos humanos e de difusão científica, que envolve todos os grupos participantes e é coordenada pelas instituições líderes do projeto. Essa estrutura integrada e multidisciplinar permite ao INCT-DAESF atuar de forma abrangente em toda a cadeia de valor da energia solar fotovoltaica, consolidando-se como uma iniciativa estratégica para o desenvolvimento tecnológico e sustentável do setor energético brasileiro.',
+<p>
+Se você é detentor de direitos autorais sobre algum dos conteúdos referenciados e acredita que seu material esteja sendo utilizado de maneira indevida, 
+entre em contato para que a situação seja regularizada.
+</p>
+    <button id="disclaimer-btn">OK, entendi</button>
+  </div>
+</div>
 
-        difusaoTitle: 'Difusão e Eventos',
-        difusaoP1: 'A estratégia de difusão do INCT-DAESF baseia-se na ampla disseminação do conhecimento científico, tecnológico e aplicado gerado pelo Instituto, visando alcançar a comunidade acadêmica, o setor produtivo e a sociedade em geral.',
-        difusaoP2: 'As ações incluem a publicação de resultados em periódicos científicos de alto impacto e em revistas técnicas, bem como a participação em conferências nacionais e internacionais. Complementarmente, o INCT promove seminários, eventos e transmissões online, ampliando o acesso ao conhecimento e incentivando a formação de novos pesquisadores.',
-        difusaoP3: 'A interação com o setor produtivo é fortalecida por meio de parcerias com associações e empresas do setor energético, o que favorece a transferência de tecnologia e a aplicação prática dos resultados. Além disso, o Instituto investe na divulgação científica em mídias digitais e canais abertos, contribuindo para a popularização da ciência e para o engajamento da sociedade na transição energética.',
+<style>
+  #disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
 
-        noticiasTitle: 'Notícias',
-        noticiasIntro: 'Acompanhe as últimas novidades, conquistas e atividades do INCT-DAESF e de seus grupos associados.',
-        noticia1Data: '10 de abril de 2026',
-        noticia1Titulo: 'INCT-DAESF realiza primeiro workshop nacional sobre sistemas agrovoltaicos',
-        noticia1Resumo: 'O evento reuniu pesquisadores das 14 instituições da rede para discutir os avanços na integração entre geração fotovoltaica e produção agrícola.',
-        noticia2Data: '22 de março de 2026',
-        noticia2Titulo: 'Pesquisa sobre hidrogênio verde da UFSC recebe destaque internacional',
-        noticia2Resumo: 'O grupo Fotovoltaica/UFSC publicou resultados promissores sobre a produção de hidrogênio verde a partir de energia solar em periódico de alto impacto.',
-        noticia3Data: '5 de março de 2026',
-        noticia3Titulo: 'Laboratório do LSF-IEE/USP inicia novos ensaios de conformidade de módulos FV',
-        noticia3Resumo: 'A infraestrutura da sede do Instituto passou por modernização e amplia a capacidade de qualificação de equipamentos fotovoltaicos no país.',
-        noticia4Data: '18 de fevereiro de 2026',
-        noticia4Titulo: 'Abertas inscrições para bolsas de Iniciação Científica na rede INCT-DAESF',
-        noticia4Resumo: 'Estudantes de graduação podem se candidatar a vagas em projetos de pesquisa distribuídos entre os grupos associados do Instituto.',
-        noticia5Data: '30 de janeiro de 2026',
-        noticia5Titulo: 'INCT-DAESF firma nova parceria internacional com o Fraunhofer ISE',
-        noticia5Resumo: 'O acordo de cooperação prevê intercâmbio de pesquisadores e desenvolvimento conjunto de projetos em armazenamento de energia.',
+  #disclaimer-popup {
+    background: #ffffffee;
+    max-width: 520px;
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
-        oportunidadesTitle: 'Oportunidades',
-        oportunidadesP1: 'O INCT-DAESF oferece diversas oportunidades de participação e atuação para estudantes e profissionais interessados no desenvolvimento científico e tecnológico na área de energia solar fotovoltaica. Por meio de sua rede de instituições parceiras, o Instituto promove a formação de recursos humanos altamente qualificados em diferentes níveis.',
-        oportunidadesP2: 'Estudantes de graduação podem ingressar em projetos de pesquisa por meio de bolsas de Iniciação Científica (IC), participando ativamente de atividades experimentais, de modelagem, de desenvolvimento de tecnologias e de estudos aplicados. Para aqueles com perfil voltado à inovação e interação com o setor produtivo, também há oportunidades por meio de bolsas de Desenvolvimento Tecnológico e Industrial (DTI), com foco em soluções tecnológicas e aplicações práticas.',
-        oportunidadesP3: 'No âmbito da pós-graduação, o INCT-DAESF está associado a diversos programas de excelência que oferecem oportunidades de Mestrado e Doutorado, permitindo o aprofundamento acadêmico em temas estratégicos, como sistemas fotovoltaicos, armazenamento de energia, integração à rede elétrica, hidrogênio verde, mobilidade elétrica e aplicações em ambientes construídos e em áreas isoladas.',
-        oportunidadesP4: 'Além disso, o Instituto incentiva a mobilidade acadêmica, a participação em projetos cooperativos e a interação com pesquisadores nacionais e internacionais, proporcionando um ambiente multidisciplinar e inovador.',
+  #disclaimer-popup h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #0f172a;
+  }
 
-        instituicoesTitle: 'Instituições e Parceiros',
-        instituicoesP1: 'O INCT-DAESF estabelece uma ampla rede de parcerias nacionais e internacionais, envolvendo instituições de pesquisa e empresas estratégicas, com o objetivo de fortalecer a pesquisa, promover a inovação e ampliar o impacto das aplicações da energia solar fotovoltaica no Brasil. Essas parcerias viabilizam o desenvolvimento de projetos cooperativos, o intercâmbio de pesquisadores e a transferência de conhecimento entre a academia, o setor produtivo e o governo.',
-        instituicoesP2: 'No âmbito internacional, o INCT-DAESF conta com a colaboração de diversas instituições de ensino e pesquisa, entre as quais se destacam:',
-        instituicoesP3: 'No setor empresarial, o Instituto mantém parceria com empresas atuantes nas áreas de geração fotovoltaica, eletrônica de potência, automação e armazenamento de energia, incluindo:',
-        instituicoesP4: 'Essas parcerias são fundamentais para a consolidação de um ecossistema de inovação, permitindo ao INCT-DAESF atuar de forma integrada no desenvolvimento de soluções tecnológicas, na formação de recursos humanos qualificados e no avanço da energia solar fotovoltaica como vetor estratégico para a transição energética sustentável no país.',
+  #disclaimer-btn {
+    margin-top: 18px;
+    padding: 10px 18px;
+    border: none;
+    background: #0ea5e9;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+  }
 
-        footerText: '© 2026 INCT-DAESF. Todos os direitos reservados.'
-      },
+  #disclaimer-btn:hover {
+    background: #0284c7;
+  }
+</style>
 
-      en: {
-        heroSubtitle: 'National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications.',
-        navInicio: 'Home',
-        navSobre: 'About',
-        navGrupos: 'Associated Groups',
-        navPesquisa: 'Research',
-        navDifusao: 'Outreach and Events',
-        navNoticias: 'News',
-        navOportunidades: 'Opportunities',
-        navInstituicoes: 'Institutions and Partners',
+<script>
+  // Exibe o popup somente uma vez por sessão
+  if (!sessionStorage.getItem('disclaimerShown')) {
+    document.getElementById('disclaimer-overlay').style.display = 'flex';
+  } else {
+    document.getElementById('disclaimer-overlay').style.display = 'none';
+  }
 
-        inicioLeadCustom: 'The INCT for the Development of Photovoltaic Solar Energy Applications is a research network that brings together 14 research institutions in Brazil. It is focused on technological innovation in photovoltaic solar energy applications.',
-        inicioCoord: '(Roberto Zilles)<br>Coordination',
-        inicioVice: '(Ricardo Rüther)<br>Vice-coordination',
-
-        sobreTitle: 'About',
-        sobreP1: 'The National Institute of Science and Technology for the Development of Photovoltaic Solar Energy Applications (INCT-DAESF) is a Brazilian nationwide network dedicated to scientific research, technological development, and innovation in photovoltaic systems and their applications for energy supply in both isolated and grid-connected systems. The Institute brings together 14 active science and technology institutions in the country, forming a collaborative network with significant expertise and infrastructure in the field. More than a cluster of laboratories, INCT-DAESF consolidates established partnerships and enhances results through integrated and interdisciplinary action.',
-        sobreP2: 'Its mission is to carry out high-level research, promote innovation, and train qualified human resources, contributing to Brazil\'s transition toward a sustainable energy supply. The Institute operates in coordination with industry and government, fostering knowledge transfer, technological solutions, and public policy development.',
-        sobreP3: 'With strong international cooperation and interaction with the productive sector, INCT-DAESF seeks to expand the scientific, technological, economic, and socio-environmental impact of photovoltaic solar energy, contributing to the advancement of this strategic technology in Brazil. Its activities range from system modeling and integration to innovative applications such as energy storage, green hydrogen, electric mobility, hybrid systems, and agrivoltaic systems.',
-
-        gruposTitle: 'Associated Groups',
-        gruposP1: 'INCT-DAESF is headquartered at the University of São Paulo (USP), through the Institute of Energy and Environment, at the Photovoltaic Systems Laboratory (LSF-IEE/USP), which provides laboratory infrastructure and administrative support for the Institute\'s activities. The vice-headquarters is linked to the Federal University of Santa Catarina (UFSC), through the Fotovoltaica/UFSC group, a national reference in the field.',
-        gruposP2: 'The <strong>coordination</strong> of INCT-DAESF is led by <strong>Prof. Dr. Roberto Zilles (LSF-IEE/USP)</strong>, and the vice-coordination by <strong>Prof. Dr. Ricardo Rüther (Fotovoltaica/UFSC)</strong>, both CNPq PQ-1A researchers with extensive experience and a prominent role in the development of photovoltaic solar energy in Brazil.',
-        gruposP3: 'INCT-DAESF is composed of associated research groups distributed across different Brazilian institutions, with their respective leaders:',
-        tableGrupo: 'Group / Institution',
-        tableLider: 'Leader',
-        tableLattes: 'Lattes CV',
-        cv_lattes: 'CV',
-        gruposP4: 'These groups form a collaborative network that integrates complementary expertise and advanced infrastructure, enabling cooperative projects on national and international scales.',
-        pesquisaP2: 'On the technical-scientific front, notable goals include the modeling and qualification of photovoltaic systems, led by groups such as LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and LSF – IEE/USP, as well as the thermo-energetic assessment of buildings, with the participation of LAF – UFF and UFSM. The integration of photovoltaic generation with energy storage systems is developed mainly by FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA, and GENERAL – IFSC, while green hydrogen production is concentrated in the FOTOVOLTAICA – UFSC group.',
-        pesquisaP3: 'Solar resource forecasting and pyranometer calibration activities are coordinated by institutions such as UNIFESP, SENAI ISI-ER/LES-RN, and LSF – IEE/USP, which are essential for the planning and operation of energy systems. In parallel, studies on the integration of photovoltaic generation into the electrical grid and the development of microgrids are conducted by groups from NTEEL – UFSC, GEDAE – UFPA, and LER – UNIFAP, addressing technical and operational aspects of solar energy integration into the power system.',
-        pesquisaP4: 'Other relevant goals include the development of hybrid systems (solar-wind), coordinated by the LAERO/LEA – UFC group; the implementation of agrivoltaic systems, led by FOTOVOLTAICA – UFSC and LSF – IEE/USP; and the performance of experimental testing and conformity analyses, with emphasis on the laboratories of LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and GEDAE – UFPA. Additionally, the project includes applications aimed at electrifying isolated communities, under the responsibility of groups from UFPA and UNIFAP, as well as economic and regulatory studies conducted by UFBA and UFSCar.',
-        pesquisaP5: 'Finally, the cross-cutting goal of human resource training and scientific outreach stands out, involving all participating groups and coordinated by the leading institutions of the project. This integrated and multidisciplinary structure allows INCT-DAESF to act comprehensively across the entire value chain of photovoltaic solar energy, establishing itself as a strategic initiative for the technological and sustainable development of the Brazilian energy sector.',
-
-        pesquisaTitle: 'Research',
-        pesquisaP1: 'INCT-DAESF structures its activities as a set of interdependent research fronts, collaboratively organized among different teaching and research institutions. Each goal is coordinated by an associated laboratory and carried out with the integrated participation of the other groups in the network.',
-        eixo: 'Description',
-        descricao: 'Responsible Groups/Laboratories',
-        e1: 'PV system modeling and qualification',
-        d1: 'LABSOL–UFRGS<br>FOTOVOLTAICA–UFSC<br>LSF–IEE/USP',
-        e2: 'Thermo-energetic assessment of buildings',
-        d2: 'LAF–UFF<br>UFSM',
-        e3: 'Energy storage',
-        d3: 'FOTOVOLTAICA–UFSC<br>LSF–IEE/USP<br>GEDAE–UFPA<br>GENERAL–IFSC',
-        e4: 'Green hydrogen',
-        d4: 'FOTOVOLTAICA–UFSC',
-        e5: 'Solar resource forecasting and calibration',
-        d5: 'UNIFESP<br>SENAI ISI-ER/LES-RN<br>LSF–IEE/USP',
-        e6: 'Grid integration and microgrids',
-        d6: 'NTEEL–UFSC<br>GEDAE–UFPA<br>LER–UNIFAP',
-        e7: 'Hybrid systems',
-        d7: 'LAERO/LEA–UFC',
-        e8: 'Agrivoltaic systems',
-        d8: 'FOTOVOLTAICA–UFSC<br>LSF–IEE/USP',
-        e9: 'Experimental testing and conformity',
-        d9: 'LSF–IEE/USP<br>LABSOL–UFRGS<br>FOTOVOLTAICA–UFSC<br>GEDAE–UFPA.',
-        e10: 'Isolated communities',
-        d10: 'UFPA<br>UNIFAP.',
-        e11: 'Economic and regulatory studies',
-        d11: 'UFBA<br>UFSCar.',
-        e12: 'Human resource training and outreach',
-        d12: 'A cross-cutting goal involving all participating groups.',
-
-        pesquisaP2: 'On the technical-scientific front, notable goals include the modeling and qualification of photovoltaic systems, led by groups such as LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and LSF – IEE/USP, as well as the thermo-energetic assessment of buildings, with the participation of LAF – UFF and UFSM. The integration of photovoltaic generation with energy storage systems is developed mainly by FOTOVOLTAICA – UFSC, LSF – IEE/USP, GEDAE – UFPA, and GENERAL – IFSC, while green hydrogen production is concentrated in the FOTOVOLTAICA – UFSC group.',
-        pesquisaP3: 'Solar resource forecasting and pyranometer calibration activities are coordinated by institutions such as UNIFESP, SENAI ISI-ER/LES-RN, and LSF – IEE/USP, which are essential for the planning and operation of energy systems. In parallel, studies on the integration of photovoltaic generation into the electrical grid and the development of microgrids are conducted by groups from NTEEL – UFSC, GEDAE – UFPA, and LER – UNIFAP, addressing technical and operational aspects of solar energy integration into the power system.',
-        pesquisaP4: 'Other relevant goals include the development of hybrid systems (solar-wind), coordinated by the LAERO/LEA – UFC group; the implementation of agrivoltaic systems, led by FOTOVOLTAICA – UFSC and LSF – IEE/USP; and the performance of experimental testing and conformity analyses, with emphasis on the laboratories of LSF – IEE/USP, LABSOL – UFRGS, FOTOVOLTAICA – UFSC, and GEDAE – UFPA. Additionally, the project includes applications aimed at electrifying isolated communities, under the responsibility of groups from UFPA and UNIFAP, as well as economic and regulatory studies conducted by UFBA and UFSCar.',
-        pesquisaP5: 'Finally, the cross-cutting goal of human resource training and scientific outreach stands out, involving all participating groups and coordinated by the leading institutions of the project. This integrated and multidisciplinary structure allows INCT-DAESF to act comprehensively across the entire value chain of photovoltaic solar energy, establishing itself as a strategic initiative for the technological and sustainable development of the Brazilian energy sector.',
-
-        difusaoTitle: 'Outreach and Events',
-        difusaoP1: 'INCT-DAESF\'s outreach strategy is based on the broad dissemination of the scientific, technological, and applied knowledge generated by the Institute, aiming to reach the academic community, the productive sector, and society at large.',
-        difusaoP2: 'Actions include publishing results in high-impact scientific journals and technical magazines, as well as participating in national and international conferences. In addition, the Institute promotes seminars, events, and online broadcasts, expanding access to knowledge and encouraging the training of new researchers.',
-        difusaoP3: 'Interaction with the productive sector is strengthened through partnerships with associations and companies in the energy sector, fostering technology transfer and the practical application of results. In addition, the Institute invests in science communication through digital media and open channels, contributing to the popularization of science and to society\'s engagement in the energy transition.',
-
-        noticiasTitle: 'News',
-        noticiasIntro: 'Keep up with the latest news, achievements, and activities of INCT-DAESF and its associated groups.',
-        noticia1Data: 'April 10, 2026',
-        noticia1Titulo: 'INCT-DAESF holds first national workshop on agrivoltaic systems',
-        noticia1Resumo: 'The event brought together researchers from the network\'s 14 institutions to discuss advances in the integration of photovoltaic generation and agricultural production.',
-        noticia2Data: 'March 22, 2026',
-        noticia2Titulo: 'UFSC green hydrogen research gains international recognition',
-        noticia2Resumo: 'The Fotovoltaica/UFSC group published promising results on green hydrogen production from solar energy in a high-impact journal.',
-        noticia3Data: 'March 5, 2026',
-        noticia3Titulo: 'LSF-IEE/USP laboratory begins new conformity testing of PV modules',
-        noticia3Resumo: 'The infrastructure at the Institute\'s headquarters has been modernized, expanding the country\'s capacity for qualifying photovoltaic equipment.',
-        noticia4Data: 'February 18, 2026',
-        noticia4Titulo: 'Applications open for Scientific Initiation scholarships in the INCT-DAESF network',
-        noticia4Resumo: 'Undergraduate students can apply for positions in research projects distributed among the Institute\'s associated groups.',
-        noticia5Data: 'January 30, 2026',
-        noticia5Titulo: 'INCT-DAESF signs new international partnership with Fraunhofer ISE',
-        noticia5Resumo: 'The cooperation agreement provides for researcher exchange and joint development of energy storage projects.',
-
-        oportunidadesTitle: 'Opportunities',
-        oportunidadesP1: 'INCT-DAESF offers several opportunities for participation and engagement for students and professionals interested in scientific and technological development in the field of photovoltaic solar energy. Through its network of partner institutions, the Institute promotes the training of highly qualified human resources at different levels.',
-        oportunidadesP2: 'Undergraduate students can join research projects through Scientific Initiation (IC) scholarships, actively participating in experimental activities, modeling, technology development, and applied studies. For those with a profile oriented toward innovation and interaction with the productive sector, there are also opportunities through Technological and Industrial Development (DTI) scholarships, focused on technological solutions and practical applications.',
-        oportunidadesP3: 'At the graduate level, INCT-DAESF is associated with several programs of excellence offering Master\'s and PhD opportunities, enabling in-depth academic research on strategic topics such as photovoltaic systems, energy storage, grid integration, green hydrogen, electric mobility, and applications in built environments and isolated areas.',
-        oportunidadesP4: 'Furthermore, the Institute encourages academic mobility, participation in cooperative projects, and interaction with national and international researchers, providing a multidisciplinary and innovative environment.',
-
-        instituicoesTitle: 'Institutions and Partners',
-        instituicoesP1: 'INCT-DAESF maintains a broad network of national and international partnerships involving research institutions and strategic companies, with the goal of strengthening research, promoting innovation, and expanding the impact of photovoltaic solar energy applications in Brazil. These partnerships enable the development of cooperative projects, the exchange of researchers, and the transfer of knowledge between academia, the productive sector, and government.',
-        instituicoesP2: 'At the international level, INCT-DAESF collaborates with several teaching and research institutions, among which the following stand out:',
-        instituicoesP3: 'In the business sector, the Institute maintains partnerships with companies active in the areas of photovoltaic generation, power electronics, automation, and energy storage, including:',
-        instituicoesP4: 'These partnerships are essential for consolidating an innovation ecosystem, enabling INCT-DAESF to act in an integrated manner in the development of technological solutions, the training of qualified human resources, and the advancement of photovoltaic solar energy as a strategic driver for the sustainable energy transition in Brazil.',
-
-        footerText: '© 2026 INCT-DAESF. All rights reserved.'
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const links = document.querySelectorAll('.nav-link');
-      const sections = document.querySelectorAll('.content-section');
-      const langButtons = document.querySelectorAll('.lang-btn');
-
-      function showSection(targetId) {
-        sections.forEach(section => {
-          section.classList.toggle('active', section.id === targetId);
-        });
-        links.forEach(link => {
-          link.classList.toggle('active', link.dataset.target === targetId);
-        });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function applyLanguage(lang) {
-        document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.dataset.i18n;
-          if (translations[lang] && translations[lang][key] !== undefined) {
-            el.innerHTML = translations[lang][key];
-          }
-        });
-        langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-      }
-
-      links.forEach(link => {
-        link.addEventListener('click', function (event) {
-          event.preventDefault();
-          showSection(this.dataset.target);
-        });
-      });
-
-      const logoLink = document.querySelector('.logo-link');
-      if (logoLink) {
-        logoLink.addEventListener('click', function (event) {
-          event.preventDefault();
-          showSection(this.dataset.target);
-        });
-      }
-
-      langButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-          applyLanguage(this.dataset.lang);
-        });
-      });
-
-      showSection('inicio');
-      applyLanguage('pt');
-    });
-  </script>
+  document.getElementById('disclaimer-btn').addEventListener('click', function() {
+    document.getElementById('disclaimer-overlay').style.display = 'none';
+    sessionStorage.setItem('disclaimerShown', 'true');
+  });
+</script>
+  
 </body>
 </html>
